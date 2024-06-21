@@ -1,0 +1,9 @@
+To run the code, you need to run the bash file run0.sh
+
+It will read the subset file from datacoco and generate the corresponding images in generated images. Please notice that you need to change the gamma variable to increase the repulsion
+
+
+## -- ##
+
+The implementation is largely based on the public repository.
+Feel free to try the colab notebook https://github.com/yuanzhi-zhu/prolific_dreamer2d/blob/main/prolific_dreamer_2D.ipynb
