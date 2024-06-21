@@ -1,0 +1,24 @@
+# Copyright (c) 2023, NVIDIA CORPORATION.  All rights reserved
+
+#local machine
+
+# Paths #
+root: "/home/nzilberstein/repository/unconstrained_sampling/SDS"
+load_text: False
+evol_path: "_exp/evol"
+output_path: "_exp/output"
+save_ori: False
+ori_path: "_exp/ground_truth"
+save_deg: True
+deg_path: "_exp/deg"
+ckpt_root: "ckpts"
+
+overwrite: True
+
+num_steps: 100
+start_step: 1000
+end_step: 0
+smoke_test: 4
+logfreq: 200
+seed: 6
+

@@ -1,0 +1,119 @@
+dataset:
+  name: FFHQ_256x256
+  root: /home/nzilberstein/Inverse/datasets/FFHQ
+  split: val
+  image_size: 512
+  channels: 3
+  transform: default
+  subset: 1000
+loader:
+  batch_size: 1
+  num_workers: 12
+  shuffle: false
+  drop_last: false
+  pin_memory: true
+model:
+  model:
+    base_learning_rate: 2.0e-06
+    target: ldm.models.diffusion.ddpm.LatentDiffusion
+    params:
+      linear_start: 0.0015
+      linear_end: 0.0195
+      num_timesteps_cond: 1
+      log_every_t: 200
+      timesteps: 1000
+      first_stage_key: image
+      cond_stage_key: class_label
+      image_size: 64
+      channels: 3
+      cond_stage_trainable: false
+      concat_mode: false
+      monitor: val/loss
+      unet_config:
+        target: ldm.modules.diffusionmodules.openaimodel.UNetModel
+        params:
+          image_size: 64
+          in_channels: 3
+          out_channels: 3
+          model_channels: 224
+          attention_resolutions:
+          - 8
+          - 4
+          - 2
+          num_res_blocks: 2
+          channel_mult:
+          - 1
+          - 2
+          - 3
+          - 4
+          num_head_channels: 32
+      first_stage_config:
+        target: ldm.models.autoencoder.VQModelInterface
+        params:
+          embed_dim: 3
+          n_embed: 8192
+          ddconfig:
+            double_z: false
+            z_channels: 3
+            resolution: 256
+            in_channels: 3
+            out_ch: 3
+            ch: 128
+            ch_mult:
+            - 1
+            - 2
+            - 4
+            num_res_blocks: 2
+            attn_resolutions: []
+            dropout: 0.0
+          lossconfig:
+            target: torch.nn.Identity
+      cond_stage_config: __is_unconditional__
+  data:
+    target: main.DataModuleFromConfig
+    params:
+      batch_size: 42
+      num_workers: 5
+      wrap: false
+      train:
+        target: ldm.data.faceshq.FFHQTrain
+        params:
+          size: 256
+      validation:
+        target: ldm.data.faceshq.FFHQValidation
+        params:
+          size: 256
+exp:
+  root: /home/nzilberstein/Inverse/_exp
+  ckpt_root: ckpts
+  overwrite: true
+  num_steps: 500
+  start_step: 1000
+  end_step: 0
+  smoke_test: 4
+  logfreq: 200
+  save_ori: false
+  save_deg: true
+  evol_path: /home/nzilberstein/code_submission/Inverse_submission/_exp/evol
+  output_path: /home/nzilberstein/code_submission/Inverse_submission/_exp/output_rip/RED_diff/
+  load_img_id: true
+  seed: 1
+  img_path: /home/nzilberstein/code_submission/Inverse_submission/_exp/input/FFHQ
+  img_id: 00010.png
+  gpu: 0
+algo:
+  name: rsd
+  deg: inp
+  w: 0
+  obs_weight: 1
+  denoise_term_weight: linear
+  sigma_y: 0.0
+  eta: 0.0
+  sigma_x0: 0.0
+  n_particles: 4
+  dino_flag: true
+  gamma: 0
+  rho_reg: 0.05
+  w_t: 0.0015
+  lr_x: 0.5
+  lr_z: 0.5
