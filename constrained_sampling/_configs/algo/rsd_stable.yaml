@@ -1,0 +1,20 @@
+# Copyright (c) 2023, NVIDIA CORPORATION.  All rights reserved
+
+name: "rsd_stable"
+deg: "inp_random"
+denoise_term_weight: "linear"    #"linear", "sqrt", "log", "square", "trunc_linear", "const", "power2over3"
+# kernel_type: "rbf"   #"identity", "rbf"
+dino_flag: False
+# LPIPS: True
+
+# Parameters #
+n_particles: 4
+sigma_x0: 0.0
+w: 0.0 # guidace scale
+obs_weight: 1
+eta: 0.0
+gamma: 0
+rho_reg: 0.2 #0.05
+w_t: 0.1 #0.0009, 0.005 for box
+lr_x: 0.2 #1
+lr_z: 0.2

@@ -1,0 +1,10 @@
+# Copyright (c) 2023, NVIDIA CORPORATION.  All rights reserved
+
+defaults:
+- dataset: ffhq512_val
+- loader: imagenet256_ddrm
+# - model: ffhq256_ldm
+- exp: default
+- algo: rsd_stable
+- model: ffhq512_stable
+- _self_

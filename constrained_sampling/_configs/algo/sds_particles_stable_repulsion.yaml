@@ -1,0 +1,28 @@
+# Copyright (c) 2023, NVIDIA CORPORATION.  All rights reserved
+
+name: "sds_particles_stable_repulsion"
+deg: "deno"
+awd: True
+cond_awd: False
+obs_weight: 1.0
+grad_term_weight: 0.25
+denoise_term_weight: "linear"    #"linear", "sqrt", "log", "square", "trunc_linear", "const", "power2over3"
+sigma_y: 0.0
+eta: 0.0
+lr: 0.1
+sigma_x0: 0.0
+n_particles: 4
+kernel_type: "rbf"   #"identity", "rbf"
+dino: False #Use DINO for RBF kernel
+LPIPS: False
+ad: False #0.01 # Bigger ad means more like ID
+annealing: False
+# kernel_type: "identity"   #"identity", "rbf"
+# dino: False #Use DINO for RBF kernel
+# LPIPS: False
+# ad: False #0.01 # Bigger ad means more like ID
+# annealing: False
+bandwidth_factor: -1
+decay_iter: 20
+decay_rate: 0.9
+optimizer: adam
