@@ -1,6 +1,6 @@
 # REPULSIVE SCORE DISTILLATION
 
-This is the README file for the implementaiton of repulsive score distillation method in the paper https://arxiv.org/abs/2305.04391. 
+This is the README file for the implementaiton of repulsive score distillation method in the paper ..
 It provides an overview of the project, instructions for installation and usage, and other relevant information.
 
 Given that our framework was applied to unconstrained case (text-to-image, text-to-3D) and constrained (inverse problems), there are two different folders, one for each case.
@@ -157,5 +157,5 @@ For any inquiries, please contact nzilberstein@rice.edu
 
 ## Acknowledgments
 
-Credits go to a few repos that we used: particle guidance (https://github.com/gcorso/particle-guidance/tree/main), prolific dreamear 2d (https://github.com/yuanzhi-zhu/prolific_dreamer2d) and RED-diff (https://github.com/NVlabs/RED-diff/tree/master).
+Credits go to a few repos that we used as templates: particle guidance (https://github.com/gcorso/particle-guidance/tree/main), prolific dreamear 2d (https://github.com/yuanzhi-zhu/prolific_dreamer2d) and RED-diff (https://github.com/NVlabs/RED-diff/tree/master).
 For text-to-3D, we used the threestudio framework (https://github.com/threestudio-project/threestudio).
