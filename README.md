@@ -22,11 +22,20 @@ Examples of the results for different experiments are shown below
 ### Diversity for text-to-3D
 
 
-https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/assets/37513044/bb6c6cf1-2347-4a9c-a9ff-f28248ceff60
-  
+
+https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/assets/37513044/2492ebef-842e-43a8-988d-522619a8a9fe
 
 
-<img src="https://github.com/nzilberstein/higher-order-langevin/blob/main/figures/discretization_methods.png" width="500" height="425">
+
+https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/assets/37513044/eaf5870b-511f-4014-a476-663c0c0db12d
+
+
+
+https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/assets/37513044/deb57841-e73b-4230-b2ff-c827445d6b2b
+
+
+
+https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/assets/37513044/c1f03cfb-820a-4fb4-9f25-6a6cde64ed1f
 
 
 ### Diversity for inverse problems
