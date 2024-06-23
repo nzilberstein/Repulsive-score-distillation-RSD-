@@ -178,7 +178,7 @@ class RSD(DDIM):
                 if counter % 100 == 0:
                     image_evol = make_grid((postprocess(x).clone().detach().cpu()))
                     save_image(image_evol, f'{evol_path}/evol_{counter}.png')      
-
+    
                     image_z = self.model.decode_latents(latents, stay_on_device=True).detach()
                     image_evol = make_grid((postprocess(image_z).clone().detach().cpu()))
                     save_image(image_evol, f'{evol_path}/evol_{counter}_z.png')     

@@ -720,7 +720,7 @@ def load_mask(f):
     # shape = d['shape']
     shape = [10000, 256, 256]
     m = ~np.unpackbits(m, count=np.prod(shape)).reshape(shape).view(bool)
-    return (m[1000,:,:]) #7000
+    return (m[2000,:,:]) #7000
 
 
 def build_degredation_model(cfg: DictConfig):

@@ -104,10 +104,16 @@ def main(cfg: DictConfig):
         transform = transforms.Compose([ 
             transforms.ToTensor() 
         ]) 
+
         x = transform(img) 
         x = x.cuda()
 
+
+        if x.shape[-1] != 256:
+            x = transforms.Resize((256, 256))(x)
+
         x = preprocess(x)
+        
 
         if cfg.algo.n_particles > 1:
                 x = x.repeat(cfg.algo.n_particles, 1, 1, 1)

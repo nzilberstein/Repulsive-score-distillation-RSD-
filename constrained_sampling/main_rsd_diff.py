@@ -42,7 +42,7 @@ def main(cfg: DictConfig):
     if cfg.algo.gamma > 0:
         cfg.algo.name_folder = 'rsd_stable_repulsion_gamma' + str(cfg.algo.gamma)
     else:
-        cfg.algo.name_folder = cfg.algo.name + 'non_aug'
+        cfg.algo.name_folder = cfg.algo.name
 
     # Build paths
     deg_path = os.path.join(cfg.exp.root, cfg.exp.deg_path, cfg.algo.name_folder)
@@ -194,8 +194,8 @@ def main(cfg: DictConfig):
                 os.makedirs(output_path)
 
             for it, (x, y, info) in enumerate(loader):
-                # if info['index'][0].split('.')[0] < '00047':
-                #     continue
+                if info['index'][0].split('.')[0] < '00050':
+                    continue
                 logger.info(f"Input image:{ info['index'][0]}")
                 
                 # If 256 size, upsample to 512
