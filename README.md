@@ -33,12 +33,12 @@ Image inpaiting half face:
 
 Original image and noisy measurement
 
-<img src="https://github.com/nzilberstein/higher-order-langevin/blob/main/figures/discretization_methods.png" width="500" height="425">
+<img src="https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/blob/main/figures/bip_large_00055_input_deg-1.png" width="800" height="425">
 
 
 Reconstuction (top is RSD without repulsion and bottom is RSD with repulsion)
 
-<img src="https://github.com/nzilberstein/higher-order-langevin/blob/main/figures/discretization_methods.png" width="500" height="425">
+<img src="https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/blob/main/figures/_00055_repo-1.png" width="800" height="425">
 
 
 ## Installation
