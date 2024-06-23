@@ -21,8 +21,11 @@ Examples of the results for different experiments are shown below
 
 ### Diversity for text-to-3D
 
-<video src="https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/blob/main/figures/a_bulldozer_made_out_of_toy_bricks%4020240621-234310/gamma200_true_seed1/it10000-test.mp4" controls="controls" style="max-width: 730px;">
-</video>
+
+
+https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/assets/37513044/bb6c6cf1-2347-4a9c-a9ff-f28248ceff60
+
+
 
 <img src="https://github.com/nzilberstein/higher-order-langevin/blob/main/figures/discretization_methods.png" width="500" height="425">
 
