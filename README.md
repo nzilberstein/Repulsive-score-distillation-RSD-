@@ -22,7 +22,7 @@ Examples of the results for different experiments are shown below
 ### Diversity for text-to-3D
 
 
-<video width="320" height="240" controls>
+<video width="200" height="140" controls>
   <source src="https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/assets/37513044/bb6c6cf1-2347-4a9c-a9ff-f28248ceff60
   " type="video/mp4">
 </video>
