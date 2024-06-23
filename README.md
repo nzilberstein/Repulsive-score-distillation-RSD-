@@ -43,9 +43,10 @@ Reconstuction (top is RSD without repulsion and bottom is RSD with repulsion)
 
 ## Installation
 
+```
 cd <root>
 git clone https://gitlab-master.nvidia.com/mmardani/red-diff.git .
-
+```
 
 ## Unconstrained sampling
 
@@ -89,7 +90,7 @@ For simplicity, you can download the .zip file in this link
 #### Checkpoints.
 
 We use hugginface for stablediffusion.
-Please make sure you're logged in with huggingface-cli login , in order to download the Stable Diffusion-1.5 model.
+Please make sure you're logged in with huggingface-cli login, in order to download the Stable Diffusion model.
 
 #### Usage
 
@@ -107,7 +108,15 @@ To specify the degradation, you need to specify
 Regarding the hyperparamters, there are some expeirments that might need a fine-tunning of the hyperparametrs.
 For other methods, we use the same logic from RED-diff repository.
 
-## Citations and acknowledgments
+## Citations
+
+If you find our work interesting, please consider citing
+
+## Contact
+
+For any inquiries, please contact nzilberstein@rice.edu
+
+## Acknowledgments
 
 Credits go to a few repos that we used: particle guidance (https://github.com/gcorso/particle-guidance/tree/main), prolific dreamear 2d (https://github.com/yuanzhi-zhu/prolific_dreamer2d) and RED-diff (https://github.com/NVlabs/RED-diff/tree/master).
 For text-to-3D, we used the threestudio framework (https://github.com/threestudio-project/threestudio).
