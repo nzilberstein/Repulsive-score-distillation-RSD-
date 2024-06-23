@@ -66,9 +66,7 @@ For unconstrained sampling, we include:
 1. ProlificDreamer2D for text-to-image generation (see below in Acknowledgment). For the requirements, you can check in their repo to install the conda environment
 2. DreamFusion
 3. Noise-free score distillation (for this case we couldn't replicate the results from the original paper)
-4. Threestudio implementation for text-to-3D (see below in Acknowledgment) 
-
-
+4. Threestudio implementation for text-to-3D (see below in Acknowledgment). The only difference wrt the implementation from threestudio is in the file Repulsive-score-distillation-RSD-/unconstrained_sampling/threestudio/threestudio/models/guidance/deep_floyd_guidance.py, where we have the repulsion term that we added. The flag to activate and desactivate the repulsion is an attribute of the class (it is hard-coded, we will change soon).
 
 
 ## Constrained sampling
@@ -79,6 +77,7 @@ For unconstrained sampling, we include:
 
 In this part we solve inverse problem using the augmentation and the repulsion term. 
 For the configuration, we use Omega and Hydra.
+Therefore, you need to change the root path in _configs/exp/default.
 
 ####  Installation.
 
@@ -104,7 +103,7 @@ We recommend to create a new environment to avoid issues with versions.
 #### Datasets. We ran experiments using FFHQ.
 
  
-For simplicity, you can download the .zip file in this link 
+For simplicity, you can download the .zip file in this link.
 
 
 #### Checkpoints.
@@ -123,7 +122,7 @@ Then there are other bash files to run large scale experiments on FFHQ.
 
 To specify the degradation, you need to specify 
 
-- deg='inp_random' (see utils/degradations for different types. The options are [sr4, deblur, deblur_gauss, deblur_uni, phase_retrieval, deblur_nl, hdr])
+- deg='inp_random' (see utils/degradations for different types. The options are [sr4, deblur, deblur_gauss, deblur_uni, phase_retrieval, deblur_nl, hdr]).
 
 Regarding the hyperparamters, there are some expeirments that might need a fine-tunning of the hyperparametrs.
 For other methods, we use the same logic from RED-diff repository.
