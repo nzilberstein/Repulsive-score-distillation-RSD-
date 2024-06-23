@@ -119,6 +119,26 @@ To specify the degradation, you need to specify
 Regarding the hyperparamters, there are some expeirments that might need a fine-tunning of the hyperparametrs.
 For other methods, we use the same logic from RED-diff repository.
 
+## Some more examples of text-to-3D
+
+
+
+https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/assets/37513044/876e5096-e172-486d-aacb-5c5d9761f7db
+
+
+
+https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/assets/37513044/6f2db4f2-378e-4b17-a509-f7117e4b9ffb
+
+
+
+https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/assets/37513044/8c90ba05-599b-4c2a-b918-5493fde71ad3
+
+
+
+https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/assets/37513044/dec6ea5a-c503-461e-8fd4-ae6553f94561
+
+
+
 ## Citations
 
 If you find our work interesting, please consider citing
