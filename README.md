@@ -7,7 +7,7 @@ Given that our framework was applied to unconstrained case (text-to-image, text-
 
 Our proposed method (for constrained sampling) is summarized in the following figure
 
-<img src="https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/blob/main/figures/scheme2-1.png" width="500" height="425">
+<img src="https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/blob/main/figures/scheme2-1.png" width="1000" height="425">
 
 In a nutshell, we incorporate a diversity-seeking regularizer in score distillation sampling. 
 We apply this formulation to unconstrained sampling, in the sense that we generate a scene or an image from a prompt, and constrained sampling, where we aim to compute an estimation given a noisy measurement. 
