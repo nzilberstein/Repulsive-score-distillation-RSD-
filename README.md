@@ -56,7 +56,7 @@ Reconstuction (top is RSD without repulsion and bottom is RSD with repulsion)
 
 ```
 cd <root>
-git clone https://gitlab-master.nvidia.com/mmardani/red-diff.git .
+git clone https://github.com/nzilberstein/Repulsive-score-distillation-RSD-.git
 ```
 
 ## Unconstrained sampling
@@ -82,8 +82,17 @@ For the configuration, we use Omega and Hydra.
 
 ####  Installation.
 
-To install the packages, you should run
+To install the packages, you have two optinos
 
+1) Via conda. You should run
+
+```
+conda env create -f environment.yaml
+conda activate stable-dif
+```
+
+
+2) Via pip. First you create an empty env and then you install via pip using the requirements.txt
 
 ```
 pip install -r requirements.txt
