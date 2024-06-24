@@ -1,4 +1,4 @@
-# REPULSIVE SCORE DISTILLATION
+# REPULSIVE SCORE DISTILLATION (RSD)
 
 This is the README file for the implementaiton of repulsive score distillation method in the paper ..
 It provides an overview of the project, instructions for installation and usage, and other relevant information.
@@ -153,7 +153,6 @@ https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/assets/3751304
 
 
 https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/assets/37513044/dec6ea5a-c503-461e-8fd4-ae6553f94561
-
 
 
 ## Citations
