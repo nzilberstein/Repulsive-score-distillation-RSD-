@@ -103,7 +103,7 @@ We recommend to create a new environment to avoid issues with versions.
 #### Datasets. We ran experiments using FFHQ.
 
  
-For simplicity, you can download the .zip file in this link.
+For simplicity, you can download the .zip file in this link https://drive.google.com/drive/u/1/folders/1fnjqWu8gaPZfS0niVmtBoNuncM_O302-.
 
 
 #### Checkpoints.
