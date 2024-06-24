@@ -52,6 +52,10 @@ Reconstuction (top is RSD without repulsion and bottom is RSD with repulsion)
 <img src="https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/blob/main/figures/_00055_repo-1.png" width="800" height="425">
 
 
+
+More results can be found in this link:
+https://drive.google.com/drive/folders/1D2Oh7imsXl0xZN65vwcJYHSqQaXhxvIN?usp=sharing
+
 ## Installation
 
 ```
