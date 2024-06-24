@@ -124,6 +124,15 @@ To specify the degradation, you need to specify
 
 - deg='inp_random' (see utils/degradations for different types. The options are [sr4, deblur, deblur_gauss, deblur_uni, phase_retrieval, deblur_nl, hdr]).
 
+An example with inpainting with a particular image can be obtain by running
+
+```
+sh solve_inverse_stable_single.sh
+```
+
+The results will be saved in the _exp folder.
+For large scale experiments, there are two notebooks in the folder datasets that can be used compute the PSNR and LPIPS, as well diversity.
+
 Regarding the hyperparamters, there are some expeirments that might need a fine-tunning of the hyperparametrs.
 For other methods, we use the same logic from RED-diff repository.
 
