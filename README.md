@@ -115,14 +115,18 @@ Please make sure you're logged in with huggingface-cli login, in order to downlo
 
 We have a set of bash files to run different experiments. The most general is solve_inverse_stable_single.sh, where the user can use an arbitrary image (of 512 or 256) as input: you need to specify 
 
-- exp.img_path="PATH" \
-- exp.img_id="IMG.png" \
+```
+exp.img_path="PATH" \
+exp.img_id="IMG.png" \
+```
 
 Then there are other bash files to run large scale experiments on FFHQ.
 
 To specify the degradation, you need to specify 
 
-- deg='inp_random' (see utils/degradations for different types. The options are [sr4, deblur, deblur_gauss, deblur_uni, phase_retrieval, deblur_nl, hdr]).
+```
+deg='inp_random' (see utils/degradations for different types. The options are [sr4, deblur, deblur_gauss, deblur_uni, phase_retrieval, deblur_nl, hdr]).
+```
 
 An example with inpainting with a particular image can be obtain by running
 
