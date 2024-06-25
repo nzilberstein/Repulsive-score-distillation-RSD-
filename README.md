@@ -142,6 +142,13 @@ The results will be saved in the _exp folder.
 For large scale experiments, there are two notebooks in the folder datasets that can be used compute the PSNR and LPIPS, as well diversity.
 
 Regarding the hyperparamters, there are some expeirments that might need a fine-tunning of the hyperparametrs.
+The relationship between the parameters of the bash file and the paper is as follow:
+
+```
+rho_t corresponds to 1/rho^2
+w_t corresponds to lambda
+```
+
 For other methods, we use the same logic from RED-diff repository.
 
 ## Some more examples of text-to-3D
