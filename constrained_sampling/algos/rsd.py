@@ -92,6 +92,7 @@ class RSD(DDIM):
             et = et.detach()
             noise_pred = et - noise_t
 
+            # Repulsion term
             if self.dino_flag is True:
                 latent_pred_t.requires_grad_(True)
                 dino.requires_grad_(True)
@@ -127,25 +128,11 @@ class RSD(DDIM):
                 noise_pred = et - noise_t
 
             loss_diffusion = torch.mul((noise_pred).detach(), latents).mean()
-            
-            # TODO: Missing the interactive part
-            
+                        
             # Weighting
             # snr_inv = (1-alpha_t)
             snr_inv = (1-alpha_t).sqrt() / alpha_t.sqrt()
             rho_reg = self.rho_reg
-
-            ## Optimize z - non aug ##
-            # x_pred_z = self.model.decode_latents(latents, stay_on_device=True)
-            # e_obs = y_0 - H.H(x_pred_z)
-            # loss_obs = (e_obs**2).mean() / 2
-
-            # loss_z = loss_obs + (self.w_t / (rho_reg) ) * snr_inv * loss_diffusion
-
-            # optimizer_z.zero_grad()
-            # loss_z.backward()
-            # optimizer_z.step()
-
 
             ## Optimize z ##
             x_pred_z = self.model.decode_latents(latents, stay_on_device=True)
@@ -197,9 +184,8 @@ class RSD(DDIM):
                         xo = postprocess(x).clone().detach().cpu()
                         x_256 = postprocess(input_img).cpu()
 
-                    # x_list.append(x.clone().detach())
-                    x_list.append(image_z.clone().detach())
-                    # print(x_list)
+                    x_list.append(x.clone().detach())
+
                     # PSNR
                     mse = torch.mean((xo - x_256.cpu()) ** 2, dim=(1, 2, 3))
                     psnr = 10 * torch.log10(1 / (mse + 1e-10))
@@ -211,8 +197,6 @@ class RSD(DDIM):
                     print(f'Mean LPIPS: {LPIPS.mean()}')
                     print(f'LPIPS: {LPIPS[:,0,0,0]}')
                 
-            # if counter == 950:
-            #     break
                 if counter > 900 and counter % 10 == 0:
                     image_evol = make_grid((postprocess(x).clone().detach().cpu()))
                     save_image(image_evol, f'{evol_path}/evol_{counter}.png')      
@@ -249,15 +233,10 @@ class RSD(DDIM):
                     print(f'LPIPS: {LPIPS[:,0,0,0]}')
 
                     x_list.append(x.clone().detach())
-                    # x_list.append(image_z.clone().detach())
-
-                # if counter == 910:
-                #     break               
 
             counter = counter + 1
                 
         return x_list[-1], x 
-        # return x_pred_z, x_pred_z  
         
     def initialize(self, x, y, ts, **kwargs):
         y_0 = kwargs['y_0']

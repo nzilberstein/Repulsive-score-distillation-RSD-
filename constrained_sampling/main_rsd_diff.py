@@ -101,7 +101,6 @@ def main(cfg: DictConfig):
             # If 256 size, upsample to 512
             if x.shape[-1] == 256:
                 upsample = nn.Upsample(scale_factor=2, mode='nearest') 
-                x_256 = x.clone()
                 x = upsample(x.unsqueeze(0)).squeeze()
             elif x.shape[-1] != 512 or x.shape[-2] != 512:
                 x = transforms.Resize((512, 512))(x)
@@ -138,6 +137,7 @@ def main(cfg: DictConfig):
             else:
                 xt_s, _ = algo.sample(x, y, ts, generator, y_0)  
             
+            # This is for saving at 256 resolution
             # if isinstance(xt_s, list):
             #     xo = postprocess(xt_s[0]).cpu()
             #     downsample = nn.AvgPool2d(2, 2)
@@ -152,7 +152,7 @@ def main(cfg: DictConfig):
             #         aux[i,:,:,:] = downsample(xo[i,:,:,:].unsqueeze(0)).squeeze()
             #     xo = aux
             #     x_gt = postprocess(x_256)
-            # for ii in range(len(xt_s)):
+
             if isinstance(xt_s, list):
                 xo = postprocess(xt_s[0]).cpu()
                 x_gt = postprocess(x)
