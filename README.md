@@ -1,6 +1,6 @@
 # REPULSIVE SCORE DISTILLATION (RSD)
 
-This is the README file for the implementaiton of repulsive score distillation method in the paper ..
+This is the README file for the implementation of Repulsive Score Distillation, a method introduced in https://arxiv.org/abs/2406.16683.
 It provides an overview of the project, instructions for installation and usage, and other relevant information.
 
 Given that our framework was applied to unconstrained case (text-to-image, text-to-3D) and constrained (inverse problems), there are two different folders, one for each case.
