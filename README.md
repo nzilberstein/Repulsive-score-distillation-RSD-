@@ -1,4 +1,4 @@
-# REPULSIVE LATENT SCORE DISTILLATION (RSD)
+# REPULSIVE LATENT SCORE DISTILLATION (RLSD)
 
 This is the README file for the implementation of Repulsive Score Distillation, a method introduced in https://arxiv.org/abs/2406.16683.
 It provides an overview of the project, instructions for installation and usage, and other relevant information.
