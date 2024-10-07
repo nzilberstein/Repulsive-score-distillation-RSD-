@@ -1,0 +1,6 @@
+[2024-09-03 12:54:08,527][main][INFO] - Experiment name is RSD
+[2024-09-03 12:54:10,125][main][INFO] - Model loaded
+[2024-09-03 12:54:11,451][main][INFO] - Degradation model loaded. The experiment corresponds to deblur_motion
+[2024-09-03 12:54:11,521][main][INFO] - Images loaded and measurements generated
+[2024-09-03 12:54:11,615][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/_exp/deg/x_deg.png
+[2024-09-03 12:54:11,616][main][INFO] - Running setting with coeff: 100,                         lr: (0.2, 0.2),                         rho_reg: 0.02,                         w_t: 0.01

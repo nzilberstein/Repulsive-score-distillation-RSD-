@@ -1,0 +1,2 @@
+[2024-09-07 13:32:12,406][main][INFO] - Experiment name is RED-diff
+[2024-09-07 13:32:13,116][model][INFO] - Loading model from /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/ckpts/ffhq/ffhq_10m.pt..

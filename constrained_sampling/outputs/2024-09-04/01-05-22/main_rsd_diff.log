@@ -1,0 +1,6 @@
+[2024-09-04 01:05:22,655][main][INFO] - Experiment name is RSD
+[2024-09-04 01:05:23,966][main][INFO] - Model loaded
+[2024-09-04 01:05:25,007][main][INFO] - Degradation model loaded. The experiment corresponds to deblur_motion
+[2024-09-04 01:05:25,007][main][INFO] - Dataset size is 1000
+[2024-09-04 01:05:25,204][main][INFO] - Input image:00000.png
+[2024-09-04 01:05:25,280][main][INFO] - Images loaded and measurements generated

@@ -40,7 +40,7 @@ def build_one_dataset(cfg, dataset_attr='dataset'):
     if "ImageNet" in cfg_dataset.name:
         overwrite = getattr(cfg.exp, 'overwrite', True)
         dset = get_imagenet_dataset(overwrite=overwrite, samples_root=samples_root, **cfg_dataset)
-        dist.barrier()
+        # dist.barrier()
     if "FFHQ" in cfg_dataset.name:
         dset = get_ffhq_dataset(**cfg_dataset)
 

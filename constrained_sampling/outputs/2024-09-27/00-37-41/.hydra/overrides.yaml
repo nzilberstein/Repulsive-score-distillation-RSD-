@@ -1,0 +1,16 @@
+- exp.load_img_id=True
+- algo.deg=phase_retrieval
+- algo.name=rsd_stable_nonaug
+- exp.num_steps=999
+- algo.rho_reg=0.07
+- algo.w_t=0.02
+- algo.lr_x=0.6
+- algo.lr_z=0.6
+- algo.sigma_x0=0
+- algo.gamma=30
+- algo.n_particles=6
+- algo.dino_flag=True
+- exp.seed=1
+- +exp.img_path=/home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/input/FFHQ
+- +exp.img_id=00077.png
+- +exp.gpu=1

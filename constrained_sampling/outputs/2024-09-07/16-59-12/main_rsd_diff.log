@@ -1,0 +1,7 @@
+[2024-09-07 16:59:12,433][main][INFO] - Experiment name is RSD
+[2024-09-07 16:59:14,264][main][INFO] - Model loaded
+[2024-09-07 16:59:15,399][main][INFO] - Degradation model loaded. The experiment corresponds to phase_retrieval
+[2024-09-07 16:59:15,437][main][INFO] - Images loaded and measurements generated
+[2024-09-07 16:59:15,558][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-07 16:59:15,559][main][INFO] - Running setting with coeff: 0,                         lr: (0.2, 1),                         rho_reg: 0.1,                         w_t: 0.01
+[2024-09-07 17:07:42,179][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable/00003

@@ -1,0 +1,9 @@
+- exp.load_img_id=True
+- algo=reddiff
+- algo.deg=deblur_motion
+- exp.num_steps=990
+- algo.grad_term_weight=0.25
+- algo.sigma_y=0.001
+- +exp.img_path=/home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/datasets/samples
+- +exp.img_id=00003.png
+- +exp.gpu=0

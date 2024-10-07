@@ -1,0 +1,11 @@
+- exp.load_img_id=True
+- algo=reddiff
+- algo.deg=inp_20ff
+- exp.num_steps=500
+- algo.grad_term_weight=0.25
+- algo.sigma_y=0.001
+- algo.n_particles=2
+- exp.seed=0
+- +exp.img_path=/home/nicolas/dataset/imagenet-root/imagenet/val/n01537544/
+- +exp.img_id=ILSVRC2012_val_00000414.JPEG
+- +exp.gpu=1

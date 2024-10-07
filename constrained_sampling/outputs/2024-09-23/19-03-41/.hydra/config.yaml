@@ -1,0 +1,86 @@
+dataset:
+  name: ImageNet_256x256
+  root: /home/nicolas/dataset/imagenet-root
+  split: val
+  image_size: 256
+  channels: 3
+  meta_root: /home/nicolas/dataset/imagenet-root
+  transform: diffusion
+  subset_txt: /home/nicolas/RED-diff/misc/dgp_top1k.txt
+loader:
+  batch_size: 1
+  num_workers: 12
+  shuffle: false
+  drop_last: false
+  pin_memory: true
+model:
+  _target_: models.guided_diffusion.script_util.create_model
+  in_channels: 3
+  out_channels: 3
+  num_channels: 256
+  num_heads: 4
+  num_res_blocks: 2
+  attention_resolutions: 32,16,8
+  dropout: 0.0
+  resamp_with_conv: true
+  learn_sigma: true
+  use_scale_shift_norm: true
+  use_fp16: true
+  resblock_updown: true
+  num_heads_upsample: -1
+  var_type: fixedsmall
+  num_head_channels: 64
+  image_size: 256
+  class_cond: false
+  use_checkpoint: true
+  use_new_attention_order: false
+  ckpt: imagenet_256_uncond
+classifier:
+  _target_: utils.return_none
+dist:
+  port: '12345'
+  master_address: localhost
+  node_rank: 0
+  num_proc_node: 2
+  num_processes_per_node: 1
+  backend: gloo
+exp:
+  root: /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp
+  load_img_id: true
+  save_evolution: true
+  evol_path: evol
+  output_path: output
+  save_ori: false
+  ori_path: ground_truth
+  save_deg: true
+  deg_path: deg
+  ckpt_root: ckpts
+  overwrite: true
+  num_steps: 999
+  start_step: 1000
+  end_step: 0
+  smoke_test: 4
+  logfreq: 200
+  seed: 0
+  img_path: /home/nicolas/dataset/imagenet-root/imagenet/val/n01534433/
+  img_id: ILSVRC2012_val_00000247.JPEG
+  gpu: 1
+diffusion:
+  beta_schedule: linear
+  beta_start: 0.0001
+  beta_end: 0.02
+  num_diffusion_timesteps: 1000
+algo:
+  name: reddiff
+  deg: inp_20ff
+  awd: true
+  cond_awd: false
+  obs_weight: 1.0
+  grad_term_weight: 0.25
+  denoise_term_weight: linear
+  sigma_y: 0.001
+  eta: 0.0
+  lr: 0.1
+  sigma_x0: 0.0
+  n_particles: 2
+  dino_flag: false

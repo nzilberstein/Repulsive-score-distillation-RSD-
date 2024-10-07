@@ -1,0 +1,6 @@
+[2024-09-09 17:21:51,080][main][INFO] - Experiment name is RSD
+[2024-09-09 17:21:52,391][main][INFO] - Model loaded
+[2024-09-09 17:21:53,335][main][INFO] - Degradation model loaded. The experiment corresponds to phase_retrieval
+[2024-09-09 17:21:53,336][main][INFO] - Dataset size is 1000
+[2024-09-09 17:21:53,556][main][INFO] - Input image:00000.png
+[2024-09-09 17:21:53,595][main][INFO] - Images loaded and measurements generated

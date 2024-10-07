@@ -1,0 +1,12 @@
+- exp.load_img_id=True
+- algo.deg=phase_retrieval
+- exp.num_steps=999
+- algo.rho_reg=0.2
+- algo.w_t=0.01
+- algo.lr_x=0.4
+- algo.lr_z=0.8
+- algo.sigma_x0=0.001
+- algo.gamma=0
+- +exp.img_path=/home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/datasets/samples
+- +exp.img_id=00003.png
+- +exp.gpu=2

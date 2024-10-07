@@ -40,3 +40,5 @@ KernelWizard:
   Adapter:
     norm: none
     use_dropout: false
+
+

@@ -1,0 +1,4 @@
+[2024-09-07 14:57:39,278][main][INFO] - Experiment name is RSD
+[2024-09-07 14:57:41,082][main][INFO] - Model loaded
+[2024-09-07 14:57:42,029][main][INFO] - Degradation model loaded. The experiment corresponds to phase_retrieval
+[2024-09-07 14:57:42,137][main][INFO] - Images loaded and measurements generated

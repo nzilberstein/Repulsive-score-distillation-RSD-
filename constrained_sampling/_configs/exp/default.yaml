@@ -3,7 +3,7 @@
 #local machine
 
 # Paths #
-root: "/home/nzilberstein/repository/constrained_sampling/_exp"
+root: "/home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp"
 load_img_id: False
 save_evolution: True
 evol_path: "evol"

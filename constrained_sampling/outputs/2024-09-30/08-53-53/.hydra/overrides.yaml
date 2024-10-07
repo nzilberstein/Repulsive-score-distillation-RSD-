@@ -1,0 +1,11 @@
+- exp.load_img_id=False
+- algo=dps
+- algo.deg=inp_large_box
+- exp.num_steps=999
+- algo.grad_term_weight=0.25
+- algo.sigma_y=0.001
+- algo.n_particles=2
+- exp.seed=0
+- +exp.img_path=/home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/input/FFHQ
+- +exp.img_id=00000.png
+- +exp.gpu=1

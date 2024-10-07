@@ -1,0 +1,273 @@
+[2024-09-30 08:53:53,769][main][INFO] - Experiment name is RED-diff
+[2024-09-30 08:53:54,472][model][INFO] - Loading model from /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/ckpts/ffhq/ffhq_10m.pt..
+[2024-09-30 08:54:04,037][main][INFO] - Dataset size is 1000
+[2024-09-30 08:54:04,208][main][INFO] - Input image:00000.png
+[2024-09-30 08:54:04,278][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 08:55:01,842][main][INFO] - Input image:00001.png
+[2024-09-30 08:55:01,863][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 08:55:58,670][main][INFO] - Input image:00002.png
+[2024-09-30 08:55:58,690][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 08:56:54,999][main][INFO] - Input image:00003.png
+[2024-09-30 08:56:55,018][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 08:57:51,175][main][INFO] - Input image:00004.png
+[2024-09-30 08:57:51,192][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 08:58:47,357][main][INFO] - Input image:00005.png
+[2024-09-30 08:58:47,376][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 08:59:43,560][main][INFO] - Input image:00006.png
+[2024-09-30 08:59:43,580][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:00:39,848][main][INFO] - Input image:00007.png
+[2024-09-30 09:00:39,867][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:01:36,031][main][INFO] - Input image:00008.png
+[2024-09-30 09:01:36,050][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:02:32,234][main][INFO] - Input image:00009.png
+[2024-09-30 09:02:32,253][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:03:28,449][main][INFO] - Input image:00010.png
+[2024-09-30 09:03:28,468][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:04:24,683][main][INFO] - Input image:00011.png
+[2024-09-30 09:04:24,701][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:05:20,927][main][INFO] - Input image:00012.png
+[2024-09-30 09:05:20,944][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:06:17,192][main][INFO] - Input image:00013.png
+[2024-09-30 09:06:17,210][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:07:13,350][main][INFO] - Input image:00014.png
+[2024-09-30 09:07:13,369][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:08:09,570][main][INFO] - Input image:00015.png
+[2024-09-30 09:08:09,588][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:09:05,797][main][INFO] - Input image:00016.png
+[2024-09-30 09:09:05,816][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:10:02,097][main][INFO] - Input image:00017.png
+[2024-09-30 09:10:02,116][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:10:58,298][main][INFO] - Input image:00018.png
+[2024-09-30 09:10:58,317][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:11:54,595][main][INFO] - Input image:00019.png
+[2024-09-30 09:11:54,615][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:12:50,941][main][INFO] - Input image:00020.png
+[2024-09-30 09:12:50,960][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:13:47,283][main][INFO] - Input image:00021.png
+[2024-09-30 09:13:47,302][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:14:43,710][main][INFO] - Input image:00022.png
+[2024-09-30 09:14:43,727][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:15:40,143][main][INFO] - Input image:00023.png
+[2024-09-30 09:15:40,161][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:16:36,592][main][INFO] - Input image:00024.png
+[2024-09-30 09:16:36,610][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:17:33,113][main][INFO] - Input image:00025.png
+[2024-09-30 09:17:33,129][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:18:29,586][main][INFO] - Input image:00026.png
+[2024-09-30 09:18:29,603][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:19:26,149][main][INFO] - Input image:00027.png
+[2024-09-30 09:19:26,167][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:20:22,682][main][INFO] - Input image:00028.png
+[2024-09-30 09:20:22,701][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:21:19,174][main][INFO] - Input image:00029.png
+[2024-09-30 09:21:19,191][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:22:15,589][main][INFO] - Input image:00030.png
+[2024-09-30 09:22:15,608][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:23:12,068][main][INFO] - Input image:00031.png
+[2024-09-30 09:23:12,084][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:24:08,580][main][INFO] - Input image:00032.png
+[2024-09-30 09:24:08,599][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:25:05,119][main][INFO] - Input image:00033.png
+[2024-09-30 09:25:05,139][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:26:01,638][main][INFO] - Input image:00034.png
+[2024-09-30 09:26:01,655][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:26:58,247][main][INFO] - Input image:00035.png
+[2024-09-30 09:26:58,265][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:27:54,789][main][INFO] - Input image:00036.png
+[2024-09-30 09:27:54,806][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:28:51,434][main][INFO] - Input image:00037.png
+[2024-09-30 09:28:51,455][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:29:48,086][main][INFO] - Input image:00038.png
+[2024-09-30 09:29:48,105][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:30:44,683][main][INFO] - Input image:00039.png
+[2024-09-30 09:30:44,701][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:31:41,257][main][INFO] - Input image:00040.png
+[2024-09-30 09:31:41,274][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:32:37,975][main][INFO] - Input image:00041.png
+[2024-09-30 09:32:37,993][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:33:34,481][main][INFO] - Input image:00042.png
+[2024-09-30 09:33:34,499][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:34:31,016][main][INFO] - Input image:00043.png
+[2024-09-30 09:34:31,035][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:35:27,492][main][INFO] - Input image:00044.png
+[2024-09-30 09:35:27,512][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:36:23,980][main][INFO] - Input image:00045.png
+[2024-09-30 09:36:24,002][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:37:20,410][main][INFO] - Input image:00046.png
+[2024-09-30 09:37:20,430][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:38:16,864][main][INFO] - Input image:00047.png
+[2024-09-30 09:38:16,882][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:39:13,313][main][INFO] - Input image:00048.png
+[2024-09-30 09:39:13,330][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:40:09,717][main][INFO] - Input image:00049.png
+[2024-09-30 09:40:09,735][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:41:06,115][main][INFO] - Input image:00050.png
+[2024-09-30 09:41:06,136][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:42:02,554][main][INFO] - Input image:00051.png
+[2024-09-30 09:42:02,575][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:42:59,014][main][INFO] - Input image:00052.png
+[2024-09-30 09:42:59,033][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:43:55,441][main][INFO] - Input image:00053.png
+[2024-09-30 09:43:55,462][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:44:51,806][main][INFO] - Input image:00054.png
+[2024-09-30 09:44:51,823][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:45:48,252][main][INFO] - Input image:00055.png
+[2024-09-30 09:45:48,270][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:46:44,710][main][INFO] - Input image:00056.png
+[2024-09-30 09:46:44,730][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:47:41,208][main][INFO] - Input image:00057.png
+[2024-09-30 09:47:41,228][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:48:37,711][main][INFO] - Input image:00058.png
+[2024-09-30 09:48:37,730][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:49:34,224][main][INFO] - Input image:00059.png
+[2024-09-30 09:49:34,241][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:50:30,714][main][INFO] - Input image:00060.png
+[2024-09-30 09:50:30,732][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:51:27,254][main][INFO] - Input image:00061.png
+[2024-09-30 09:51:27,273][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:52:23,888][main][INFO] - Input image:00062.png
+[2024-09-30 09:52:23,907][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:53:20,518][main][INFO] - Input image:00063.png
+[2024-09-30 09:53:20,538][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:54:17,117][main][INFO] - Input image:00064.png
+[2024-09-30 09:54:17,129][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:55:13,747][main][INFO] - Input image:00065.png
+[2024-09-30 09:55:13,766][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:56:10,322][main][INFO] - Input image:00066.png
+[2024-09-30 09:56:10,339][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:57:06,974][main][INFO] - Input image:00067.png
+[2024-09-30 09:57:06,994][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:58:03,500][main][INFO] - Input image:00068.png
+[2024-09-30 09:58:03,519][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:58:59,991][main][INFO] - Input image:00069.png
+[2024-09-30 09:59:00,008][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 09:59:56,409][main][INFO] - Input image:00070.png
+[2024-09-30 09:59:56,430][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:00:52,793][main][INFO] - Input image:00071.png
+[2024-09-30 10:00:52,813][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:01:49,223][main][INFO] - Input image:00072.png
+[2024-09-30 10:01:49,244][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:02:45,604][main][INFO] - Input image:00073.png
+[2024-09-30 10:02:45,625][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:03:42,028][main][INFO] - Input image:00074.png
+[2024-09-30 10:03:42,047][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:04:38,385][main][INFO] - Input image:00075.png
+[2024-09-30 10:04:38,406][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:05:34,783][main][INFO] - Input image:00076.png
+[2024-09-30 10:05:34,804][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:06:31,208][main][INFO] - Input image:00077.png
+[2024-09-30 10:06:31,227][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:07:27,506][main][INFO] - Input image:00078.png
+[2024-09-30 10:07:27,523][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:08:23,837][main][INFO] - Input image:00079.png
+[2024-09-30 10:08:23,853][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:09:20,127][main][INFO] - Input image:00080.png
+[2024-09-30 10:09:20,145][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:10:16,479][main][INFO] - Input image:00081.png
+[2024-09-30 10:10:16,494][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:11:12,807][main][INFO] - Input image:00082.png
+[2024-09-30 10:11:12,827][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:12:09,200][main][INFO] - Input image:00083.png
+[2024-09-30 10:12:09,221][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:13:05,604][main][INFO] - Input image:00084.png
+[2024-09-30 10:13:05,621][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:14:02,018][main][INFO] - Input image:00085.png
+[2024-09-30 10:14:02,037][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:14:58,400][main][INFO] - Input image:00086.png
+[2024-09-30 10:14:58,417][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:15:54,788][main][INFO] - Input image:00087.png
+[2024-09-30 10:15:54,806][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:16:51,202][main][INFO] - Input image:00088.png
+[2024-09-30 10:16:51,221][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:17:47,559][main][INFO] - Input image:00089.png
+[2024-09-30 10:17:47,579][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:18:43,911][main][INFO] - Input image:00090.png
+[2024-09-30 10:18:43,931][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:19:40,321][main][INFO] - Input image:00091.png
+[2024-09-30 10:19:40,340][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:20:36,674][main][INFO] - Input image:00092.png
+[2024-09-30 10:20:36,692][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:21:33,029][main][INFO] - Input image:00093.png
+[2024-09-30 10:21:33,047][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:22:29,380][main][INFO] - Input image:00094.png
+[2024-09-30 10:22:29,400][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:23:25,759][main][INFO] - Input image:00095.png
+[2024-09-30 10:23:25,779][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:24:22,113][main][INFO] - Input image:00096.png
+[2024-09-30 10:24:22,133][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:25:18,558][main][INFO] - Input image:00097.png
+[2024-09-30 10:25:18,578][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:26:14,934][main][INFO] - Input image:00098.png
+[2024-09-30 10:26:14,955][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:27:11,336][main][INFO] - Input image:00099.png
+[2024-09-30 10:27:11,357][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:28:07,749][main][INFO] - Input image:00100.png
+[2024-09-30 10:28:07,766][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:29:04,154][main][INFO] - Input image:00101.png
+[2024-09-30 10:29:04,174][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:30:00,581][main][INFO] - Input image:00102.png
+[2024-09-30 10:30:00,603][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:30:56,988][main][INFO] - Input image:00103.png
+[2024-09-30 10:30:57,006][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:31:53,386][main][INFO] - Input image:00104.png
+[2024-09-30 10:31:53,406][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:32:49,816][main][INFO] - Input image:00105.png
+[2024-09-30 10:32:49,836][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:33:46,152][main][INFO] - Input image:00106.png
+[2024-09-30 10:33:46,171][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:34:42,542][main][INFO] - Input image:00107.png
+[2024-09-30 10:34:42,562][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:35:38,910][main][INFO] - Input image:00108.png
+[2024-09-30 10:35:38,931][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:36:35,346][main][INFO] - Input image:00109.png
+[2024-09-30 10:36:35,366][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:37:31,686][main][INFO] - Input image:00110.png
+[2024-09-30 10:37:31,706][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:38:28,130][main][INFO] - Input image:00111.png
+[2024-09-30 10:38:28,148][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:39:24,591][main][INFO] - Input image:00112.png
+[2024-09-30 10:39:24,609][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:40:20,979][main][INFO] - Input image:00113.png
+[2024-09-30 10:40:20,996][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:41:17,459][main][INFO] - Input image:00114.png
+[2024-09-30 10:41:17,478][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:42:13,894][main][INFO] - Input image:00115.png
+[2024-09-30 10:42:13,914][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:43:10,260][main][INFO] - Input image:00116.png
+[2024-09-30 10:43:10,281][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:44:06,674][main][INFO] - Input image:00117.png
+[2024-09-30 10:44:06,693][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:45:03,038][main][INFO] - Input image:00118.png
+[2024-09-30 10:45:03,060][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:45:59,341][main][INFO] - Input image:00119.png
+[2024-09-30 10:45:59,359][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:46:55,678][main][INFO] - Input image:00120.png
+[2024-09-30 10:46:55,697][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:47:52,020][main][INFO] - Input image:00121.png
+[2024-09-30 10:47:52,038][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:48:48,374][main][INFO] - Input image:00122.png
+[2024-09-30 10:48:48,394][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:49:44,818][main][INFO] - Input image:00123.png
+[2024-09-30 10:49:44,836][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:50:41,216][main][INFO] - Input image:00124.png
+[2024-09-30 10:50:41,236][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:51:37,584][main][INFO] - Input image:00125.png
+[2024-09-30 10:51:37,605][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:52:33,982][main][INFO] - Input image:00126.png
+[2024-09-30 10:52:34,001][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:53:30,362][main][INFO] - Input image:00127.png
+[2024-09-30 10:53:30,380][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:54:26,730][main][INFO] - Input image:00128.png
+[2024-09-30 10:54:26,751][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:55:23,147][main][INFO] - Input image:00129.png
+[2024-09-30 10:55:23,165][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:56:19,559][main][INFO] - Input image:00130.png
+[2024-09-30 10:56:19,579][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:57:16,006][main][INFO] - Input image:00131.png
+[2024-09-30 10:57:16,025][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:58:12,406][main][INFO] - Input image:00132.png
+[2024-09-30 10:58:12,426][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 10:59:08,819][main][INFO] - Input image:00133.png
+[2024-09-30 10:59:08,838][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-30 11:00:05,223][main][INFO] - Input image:00134.png
+[2024-09-30 11:00:05,243][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png

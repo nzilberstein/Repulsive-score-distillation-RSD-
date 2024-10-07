@@ -1,0 +1,175 @@
+hydra:
+  run:
+    dir: outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  sweep:
+    dir: multirun/${now:%Y-%m-%d}/${now:%H-%M-%S}
+    subdir: ${hydra.job.num}
+  launcher:
+    _target_: hydra._internal.core_plugins.basic_launcher.BasicLauncher
+  sweeper:
+    _target_: hydra._internal.core_plugins.basic_sweeper.BasicSweeper
+    max_batch_size: null
+    params: null
+  help:
+    app_name: ${hydra.job.name}
+    header: '${hydra.help.app_name} is powered by Hydra.
+
+      '
+    footer: 'Powered by Hydra (https://hydra.cc)
+
+      Use --hydra-help to view Hydra specific help
+
+      '
+    template: '${hydra.help.header}
+
+      == Configuration groups ==
+
+      Compose your configuration from those groups (group=option)
+
+
+      $APP_CONFIG_GROUPS
+
+
+      == Config ==
+
+      Override anything in the config (foo.bar=value)
+
+
+      $CONFIG
+
+
+      ${hydra.help.footer}
+
+      '
+  hydra_help:
+    template: 'Hydra (${hydra.runtime.version})
+
+      See https://hydra.cc for more info.
+
+
+      == Flags ==
+
+      $FLAGS_HELP
+
+
+      == Configuration groups ==
+
+      Compose your configuration from those groups (For example, append hydra/job_logging=disabled
+      to command line)
+
+
+      $HYDRA_CONFIG_GROUPS
+
+
+      Use ''--cfg hydra'' to Show the Hydra config.
+
+      '
+    hydra_help: ???
+  hydra_logging:
+    version: 1
+    formatters:
+      simple:
+        format: '[%(asctime)s][HYDRA] %(message)s'
+    handlers:
+      console:
+        class: logging.StreamHandler
+        formatter: simple
+        stream: ext://sys.stdout
+    root:
+      level: INFO
+      handlers:
+      - console
+    loggers:
+      logging_example:
+        level: DEBUG
+    disable_existing_loggers: false
+  job_logging:
+    version: 1
+    formatters:
+      simple:
+        format: '[%(asctime)s][%(name)s][%(levelname)s] - %(message)s'
+    handlers:
+      console:
+        class: logging.StreamHandler
+        formatter: simple
+        stream: ext://sys.stdout
+      file:
+        class: logging.FileHandler
+        formatter: simple
+        filename: ${hydra.runtime.output_dir}/${hydra.job.name}.log
+    root:
+      level: INFO
+      handlers:
+      - console
+      - file
+    disable_existing_loggers: false
+  env: {}
+  mode: RUN
+  searchpath: []
+  callbacks: {}
+  output_subdir: .hydra
+  overrides:
+    hydra:
+    - hydra.mode=RUN
+    task:
+    - exp.load_img_id=True
+    - algo.deg=phase_retrieval
+    - algo.name=rsd_stable
+    - exp.num_steps=999
+    - algo.rho_reg=0.001
+    - algo.w_t=0.001
+    - algo.lr_x=0.8
+    - algo.lr_z=0.8
+    - algo.sigma_x0=0.001
+    - algo.gamma=0
+    - algo.n_particles=2
+    - algo.dino_flag=False
+    - exp.seed=100
+    - +exp.img_path=/home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/input/FFHQ
+    - +exp.img_id=00002.png
+    - +exp.gpu=1
+  job:
+    name: main_rsd_diff
+    chdir: null
+    override_dirname: +exp.gpu=1,+exp.img_id=00002.png,+exp.img_path=/home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/input/FFHQ,algo.deg=phase_retrieval,algo.dino_flag=False,algo.gamma=0,algo.lr_x=0.8,algo.lr_z=0.8,algo.n_particles=2,algo.name=rsd_stable,algo.rho_reg=0.001,algo.sigma_x0=0.001,algo.w_t=0.001,exp.load_img_id=True,exp.num_steps=999,exp.seed=100
+    id: ???
+    num: ???
+    config_name: ddrmpp_ffhq_stable
+    env_set: {}
+    env_copy: []
+    config:
+      override_dirname:
+        kv_sep: '='
+        item_sep: ','
+        exclude_keys: []
+  runtime:
+    version: 1.3.2
+    version_base: '1.2'
+    cwd: /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling
+    config_sources:
+    - path: hydra.conf
+      schema: pkg
+      provider: hydra
+    - path: /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_configs
+      schema: file
+      provider: main
+    - path: ''
+      schema: structured
+      provider: schema
+    output_dir: /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/outputs/2024-09-14/01-51-15
+    choices:
+      model: ffhq512_stable
+      algo: rsd_stable
+      exp: default
+      loader: imagenet256_ddrm
+      dataset: ffhq512_val
+      hydra/env: default
+      hydra/callbacks: null
+      hydra/job_logging: default
+      hydra/hydra_logging: default
+      hydra/hydra_help: default
+      hydra/help: default
+      hydra/sweeper: basic
+      hydra/launcher: basic
+      hydra/output: default
+  verbose: false

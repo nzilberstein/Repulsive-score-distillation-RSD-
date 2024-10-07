@@ -1,0 +1,11 @@
+[2024-09-23 04:16:56,038][main][INFO] - Experiment name is RSD
+[2024-09-23 04:16:57,371][main][INFO] - Model loaded
+[2024-09-23 04:16:58,336][main][INFO] - Degradation model loaded. The experiment corresponds to phase_retrieval
+[2024-09-23 04:16:58,366][main][INFO] - Images loaded and measurements generated
+[2024-09-23 04:16:58,505][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-23 04:16:58,505][main][INFO] - Running setting with coeff: 0,                         lr: (0.3, 0.6),                         rho_reg: 0.07,                         w_t: 0.01
+[2024-09-23 04:29:59,824][main][INFO] - Mean PSNR: 8.762024879455566
+[2024-09-23 04:29:59,824][main][INFO] - PSNR: tensor([8.8451, 8.4521, 8.9889])
+[2024-09-23 04:29:59,828][main][INFO] - Mean LPIPS: 0.705513596534729
+[2024-09-23 04:29:59,829][main][INFO] - LPIPS: tensor([0.6926, 0.7296, 0.6944], device='cuda:2', grad_fn=<SelectBackward0>)
+[2024-09-23 04:30:00,375][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable/00047

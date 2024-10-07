@@ -1,0 +1,17 @@
+- exp.load_img_id=True
+- algo.deg=inp_20ff
+- algo.name=rsd_stable
+- exp.num_steps=500
+- algo.rho_reg=0.15
+- algo.w_t=0.15
+- algo.lr_x=0.4
+- algo.lr_z=1
+- algo.sigma_x0=0.001
+- algo.gamma=0
+- algo.n_particles=6
+- algo.dino_flag=False
+- exp.seed=10
+- +algo.mask_idx=12
+- +exp.img_path=/home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/input/IMAGENET
+- +exp.img_id=n01828970.png
+- +exp.gpu=1

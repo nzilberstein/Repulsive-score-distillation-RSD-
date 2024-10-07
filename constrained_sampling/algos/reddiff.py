@@ -60,7 +60,7 @@ class REDDIFF(DDIM):
         optimizer = torch.optim.Adam([mu], lr=self.lr, betas=(0.9, 0.99), weight_decay=0.0)   #original: 0.999
 
         counter = 0
-        evol_path = '/home/nzilberstein/repository/constrained_sampling/_exp/evol/reddiff'
+        evol_path = '/home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/_exp/evol/reddiff'
         if not os.path.exists(f'{evol_path}'):
             os.makedirs(f'{evol_path}')
         else:

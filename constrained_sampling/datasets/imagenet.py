@@ -171,8 +171,8 @@ def get_imagenet_dataset(
 
 
 def get_imagenet_loader(dset, *, batch_size, num_workers, shuffle, drop_last, pin_memory, **kwargs):
-    sampler = DistributedSampler(dset, shuffle=shuffle, drop_last=drop_last)
+    # sampler = DistributedSampler(dset, shuffle=shuffle, drop_last=drop_last)
     loader = DataLoader(
-        dset, num_workers=num_workers, batch_size=batch_size, shuffle=shuffle, sampler=sampler, pin_memory=pin_memory, persistent_workers=True
+        dset, num_workers=num_workers, batch_size=batch_size, shuffle=shuffle, pin_memory=pin_memory, persistent_workers=True
     )
     return loader

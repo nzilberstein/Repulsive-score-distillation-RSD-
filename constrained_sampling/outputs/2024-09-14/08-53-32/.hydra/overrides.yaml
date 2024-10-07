@@ -1,0 +1,15 @@
+- exp.load_img_id=True
+- algo.deg=inp_20ff
+- exp.num_steps=999
+- algo.rho_reg=0.0001
+- algo.w_t=0.1
+- algo.lr_x=0.5
+- algo.lr_z=0.5
+- algo.sigma_x0=0.001
+- algo.gamma=0
+- algo.n_particles=2
+- algo.dino_flag=False
+- exp.seed=100
+- +exp.img_path=/home/nicolas/dataset/imagenet-root/imagenet/val/n01514668/
+- +exp.img_id=ILSVRC2012_val_00000329.JPEG
+- +exp.gpu=0

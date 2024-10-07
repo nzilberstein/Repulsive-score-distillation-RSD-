@@ -38,6 +38,8 @@ class RSD(DDIM):
         self.rho_reg = cfg.algo.rho_reg
         self.dino_flag = cfg.algo.dino_flag
         self.gamma = cfg.algo.gamma
+        self.load_img = cfg.exp.load_img_id
+        self.sigma_break = cfg.algo.sigma_break
 
         self.height = 512
         self.width = 512
@@ -50,12 +52,19 @@ class RSD(DDIM):
         self.lpips = lpips.LPIPS(net='alex').cuda() # best forward scores
 
     def sample(self, x, y, ts, generator, y_0, dino = None, results256 = False):
-        batch_size = x.size(0)
+        if len(x.shape) == 3:
+            batch_size = 1
+        else:
+            batch_size = x.size(0)
         H = self.H
         input_img = x
 
         #optimizer
         x_init = torch.randn((batch_size, 3, self.height, self.width)).cuda()
+        # print(y_0.shape)
+        # if self.cfg.algo.deg == "phase_retrieval":
+        #     x_init = self.initialize(x, y, ts, y_0=y_0).cuda()
+        # x_init = y_0.clone().cuda()
         x = torch.autograd.Variable(x_init, requires_grad=True)   #, device=device).type(dtype)
         optimizer_x = torch.optim.Adam([x], lr=self.lr_x, betas=(0.9, 0.99), weight_decay=0.0)   #original: 0.999
 
@@ -64,7 +73,11 @@ class RSD(DDIM):
         optimizer_z = torch.optim.Adam([latents], lr=self.lr_z, betas=(0.9, 0.99), weight_decay=0.0)   #original: 0.999
 
         counter = 0
-        evol_path = '/home/nzilberstein/repository/constrained_sampling/_exp/evol_rsd'
+        if self.load_img:
+            evol_path = f'/home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/_exp/evol/rsd_stable_single_{self.cfg.algo.deg}_{self.cfg.exp.img_id}_{self.cfg.algo.gamma}_{self.lr_z}'
+        else:
+            evol_path = '/home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/_exp/evol/rsd_stable'
+    
         if not os.path.exists(f'{evol_path}'):
             os.makedirs(f'{evol_path}')
         else:
@@ -72,16 +85,30 @@ class RSD(DDIM):
             os.makedirs(f'{evol_path}')
         
         x_list = []
+
+
+        sigmas = torch.sqrt((1 - self.model.scheduler.alphas_cumprod) / self.model.scheduler.alphas_cumprod)
+        # Flip the order of sigmas
+        # sigmas = sigmas.flip(0)
+        sigmas = sigmas[self.model.scheduler.timesteps.cpu().numpy()]
+        
+        # print(sigmas.flip(0))
+        # print(sigmas[self.model.scheduler.timesteps.cpu().numpy()])
+
+        idx_sigma_break = int(((self.model.scheduler.timesteps.shape[0])/ 1000 ) * self.sigma_break)
+
         for i, t in tqdm(enumerate(ts[:-1])):
 
             # tensor_list = ts.tolist()
             # t_np = random.choice(tensor_list)
             # i = tensor_list.index(t_np)
             # t = torch.tensor(t_np)
-            
+
+
             noise_t = torch.randn_like(latents).cuda()
             latent_pred_t = self.model.scheduler.add_noise(latents, noise_t, t)
             latent_pred_t = self.model.scheduler.scale_model_input(latent_pred_t, t)
+
 
             alpha_t = self.model.scheduler.alphas_cumprod[self.model.scheduler.timesteps[i].cpu().numpy()]
             alpha_t.requires_grad_(True)
@@ -92,15 +119,21 @@ class RSD(DDIM):
             et = et.detach()
             noise_pred = et - noise_t
 
+            
             # Repulsion term
-            if self.dino_flag is True:
+            if self.dino_flag is True and sigmas[i] > sigmas[idx_sigma_break]:
+            # if self.dino_flag is True and sigmas[i] < sigmas[idx_sigma_break]:
+                if counter % 50 == 0:
+                    print(f'Using DINO at step {counter}')
                 latent_pred_t.requires_grad_(True)
                 dino.requires_grad_(True)
                 self.model.vae.decoder.requires_grad_(True)
                 dino.train()
                 self.model.vae.train()
 
-                x_pred_z = self.model.decode_latents(latent_pred_t, stay_on_device=True)
+                x_pred_z = self.model.decode_latents(latents, stay_on_device=True)
+                # x_pred_z = self.model.decode_latents(latent_pred_t, stay_on_device=True)
+
                 dino_out = dino(x_pred_z)
 
                 latents_vec = dino_out.view(len(dino_out), -1)
@@ -117,13 +150,16 @@ class RSD(DDIM):
                 grad_phi = grad_phi.sum(dim=1)
 
                 eval_sum = torch.sum(dino_out * grad_phi.detach())
-                deps_dx_backprop = torch.autograd.grad(eval_sum, latent_pred_t)[0]
+                deps_dx_backprop = torch.autograd.grad(eval_sum, latents)[0]
+                # deps_dx_backprop = torch.autograd.grad(eval_sum, latent_pred_t)[0]
                 grad_phi = deps_dx_backprop.view_as(latents)
 
                 K_svgd_z_mat_reg_sum = weights.sum(dim = 1)
                 nabla_log = torch.div(grad_phi, K_svgd_z_mat_reg_sum.unsqueeze(-1).unsqueeze(-1))
 
                 noise_pred = et - noise_t - self.gamma * (1-alpha_t).sqrt() * nabla_log
+                # noise_pred = et - noise_t - self.gamma * sigmas[i] * nabla_log
+
             else:
                 noise_pred = et - noise_t
 
@@ -132,14 +168,18 @@ class RSD(DDIM):
             # Weighting
             # snr_inv = (1-alpha_t)
             snr_inv = (1-alpha_t).sqrt() / alpha_t.sqrt()
-            rho_reg = self.rho_reg
+            rho_reg = self.rho_reg # * (1-alpha_t).detach()
 
+            
             ## Optimize z ##
+            # encoded_z_0 = self.model.vae.encode(x).latent_dist.sample(generator)
             x_pred_z = self.model.decode_latents(latents, stay_on_device=True)
             e_decod = x - x_pred_z
             loss_reg = (e_decod**2).mean() / 2
+            # e_encod = encoded_z_0 - latents
+            # loss_encod = (e_encod**2).mean() / 2
 
-            loss_z = loss_reg + (self.w_t / (rho_reg) ) * snr_inv * loss_diffusion
+            loss_z = loss_reg + (self.w_t) * snr_inv * loss_diffusion
 
             optimizer_z.zero_grad()
             loss_z.backward()
@@ -153,16 +193,17 @@ class RSD(DDIM):
             e_obs = y_0 - H.H(x)
             loss_obs = (e_obs**2).mean() / 2
 
-            loss_x = loss_obs + (rho_reg) * loss_reg
+            loss_x = loss_obs + (rho_reg) *  loss_reg
 
             optimizer_x.zero_grad()
             loss_x.backward()
             optimizer_x.step()
 
-             
+
             # #save for visualization
             if self.cfg.exp.save_evolution:
-                if counter % 100 == 0:
+                if counter % 50 == 0:
+                    # print(rho_reg)
                     image_evol = make_grid((postprocess(x).clone().detach().cpu()))
                     save_image(image_evol, f'{evol_path}/evol_{counter}.png')      
     
@@ -180,7 +221,7 @@ class RSD(DDIM):
                             x_256[q,:,:,:] = downsample(postprocess(input_img[q,:,:,:].unsqueeze(0))).squeeze()
                         xo = aux
                     else:
-                        print(len(x_list))
+                        # print(len(x_list))
                         xo = postprocess(x).clone().detach().cpu()
                         x_256 = postprocess(input_img).cpu()
 
@@ -197,7 +238,7 @@ class RSD(DDIM):
                     print(f'Mean LPIPS: {LPIPS.mean()}')
                     print(f'LPIPS: {LPIPS[:,0,0,0]}')
                 
-                if counter > 900 and counter % 10 == 0:
+                if counter > len(ts) - 100 - 1 and counter % 10 == 0:
                     image_evol = make_grid((postprocess(x).clone().detach().cpu()))
                     save_image(image_evol, f'{evol_path}/evol_{counter}.png')      
 
@@ -233,9 +274,11 @@ class RSD(DDIM):
                     print(f'LPIPS: {LPIPS[:,0,0,0]}')
 
                     x_list.append(x.clone().detach())
-
+            else:
+                x_list.append(x.clone().detach())
             counter = counter + 1
                 
+        x_list.append(x.clone().detach())
         return x_list[-1], x 
         
     def initialize(self, x, y, ts, **kwargs):

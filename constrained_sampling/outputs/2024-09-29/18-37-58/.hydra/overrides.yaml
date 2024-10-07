@@ -1,0 +1,16 @@
+- exp.load_img_id=False
+- algo.deg=inp_large_box
+- exp.num_steps=500
+- algo.rho_reg=0.075
+- algo.w_t=0.13
+- algo.lr_x=0.4
+- algo.lr_z=0.6
+- algo.sigma_x0=0.001
+- algo.gamma=30
+- algo.n_particles=4
+- algo.n_particles=4
+- algo.dino_flag=True
+- algo.sigma_break=999
+- algo.name=rsd_stable_nonaug
+- exp.seed=10
+- +exp.gpu=0

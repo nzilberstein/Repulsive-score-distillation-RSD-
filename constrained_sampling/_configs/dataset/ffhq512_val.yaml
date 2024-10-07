@@ -2,7 +2,7 @@
 
 name: "FFHQ_256x256"
 # root: /home/nicolas/dataset/ffhq
-root: /home/nzilberstein/Inverse/datasets/FFHQ
+root: /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/datasets/FFHQ
 split: "val"
 image_size: 512
 channels: 3

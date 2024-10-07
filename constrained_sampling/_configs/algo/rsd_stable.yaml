@@ -18,3 +18,4 @@ rho_reg: 0.2 #0.05
 w_t: 0.1 #0.0009, 0.005 for box
 lr_x: 0.2 #1
 lr_z: 0.2
+sigma_break: 600

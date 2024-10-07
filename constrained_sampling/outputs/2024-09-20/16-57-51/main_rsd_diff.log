@@ -1,0 +1,4 @@
+[2024-09-20 16:57:51,434][main][INFO] - Experiment name is RSD
+[2024-09-20 16:57:53,125][main][INFO] - Model loaded
+[2024-09-20 16:57:54,169][main][INFO] - Degradation model loaded. The experiment corresponds to deblur_gauss
+[2024-09-20 16:57:54,179][main][INFO] - Images loaded and measurements generated

@@ -3,7 +3,10 @@ import torch
 from omegaconf import DictConfig
 import os
 from .jpeg_torch import jpeg_decode, jpeg_encode
+from motionblur.motionblur import Kernel
+import random
 
+import pdb
 import yaml
 from torch.nn import functional as F
 
@@ -714,13 +717,17 @@ def save_mask(f, mask):
     np.savez(f, m=m, shape=shape)
 
 
-def load_mask(f):
+def load_mask(f, cfg):
     d = np.load(f)
     m = d[list(d.keys())[0]]
     # shape = d['shape']
     shape = [10000, 256, 256]
     m = ~np.unpackbits(m, count=np.prod(shape)).reshape(shape).view(bool)
-    return (m[2000,:,:]) #7000
+    # Random from mask
+    # mask_idx = random.randint(0, 10000)
+    mask_idx = cfg.algo.mask_idx
+    print(mask_idx + 15)
+    return (m[mask_idx + 15,:,:]) #7000
 
 
 def build_degredation_model(cfg: DictConfig):
@@ -766,7 +773,7 @@ def build_one_degredation_model(cfg, h, w, c, deg: str):
             exp_root = cfg.exp.root
             deg_type = deg.split('_')[-1]
             masks_root = os.path.join(exp_root, 'masks', f'{deg_type}.npz')
-            loaded = load_mask(masks_root)
+            loaded = load_mask(masks_root, cfg)
             
             if w == 256:
                 mask = torch.from_numpy(loaded).cuda().reshape(-1)
@@ -781,6 +788,10 @@ def build_one_degredation_model(cfg, h, w, c, deg: str):
             # missing_r = int(w**2 * 0.6) * torch.ones_like(missing_r) + missing_r
             # print(missing_r.shape)
         elif deg == 'inp_small_box':
+            # aux = (torch.arange(150 + 256 * 100, 200 + 256 * 100).cuda().long()).cuda().long()
+
+            # missing_r = [(aux + 256 * i).clone() for i in range(50)]
+
             aux = (torch.arange(300 + 512 * 200, 400 + 512 * 200).cuda().long()).cuda().long()
 
             missing_r = [(aux + 512 * i).clone() for i in range(100)]
@@ -792,17 +803,22 @@ def build_one_degredation_model(cfg, h, w, c, deg: str):
         elif deg =='inp_random':
             missing_r = torch.randperm(w**2)[:int(w**2 * 0.8)].cuda().long() * 3
         elif deg == 'inp_large_box':  
-            # aux = (torch.arange(150 + 512 * 200, 400 + 512 * 200).cuda().long()).cuda().long()
-
-            # missing_r = [(aux + 512 * i).clone() for i in range(200)]
-
-            # aux = (torch.arange(75 + 256 * 100, 200 + 256 * 100).cuda().long()).cuda().long()
-
-            # missing_r = [(aux + 256 * i).clone() for i in range(100)]
-
             # Paper case
             if w == 512:
                 aux = (torch.arange(250 + 512 * 150, 450 + 512 * 150).cuda().long()).cuda().long()
+
+                missing_r = [(aux + 512 * i).clone() for i in range(300)]
+
+            elif w == 256:
+                aux = (torch.arange(125 + 256 * 75, 225 + 256 * 75).cuda().long()).cuda().long()
+
+                missing_r = [(aux + 256 * i).clone() for i in range(150)]
+            
+            missing_r = torch.cat(missing_r, dim=0) * 3
+        elif deg == 'inp_full_face':  
+            # Paper case
+            if w == 512:
+                aux = (torch.arange(150 + 512 * 150, 375 + 512 * 150).cuda().long()).cuda().long()
 
                 missing_r = [(aux + 512 * i).clone() for i in range(300)]
 
@@ -889,15 +905,23 @@ def build_one_degredation_model(cfg, h, w, c, deg: str):
         #current_dir = os.getcwd()
         
         #current_dir = '/lustre/fsw/nvresearch/mmardani/source/latent-diffusion-sampling/pgdm'
-        current_dir = '/home/nzilberstein/repository/constrained_sampling/'
+        current_dir = '/home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling'
         
-        # opt_yml_path = os.path.join(current_dir, 'bkse/options/generate_blur/default.yml')
-        opt_yml_path = os.path.join(current_dir, 'bkse/options/generic_deblur/default.yml')
+        opt_yml_path = os.path.join(current_dir, 'bkse/options/generate_blur/default.yml')
+        # opt_yml_path = os.path.join(current_dir, 'bkse/options/generic_deblur/default.yml')
         print('opt_yml_path', opt_yml_path)
-        H = NonlinearBlurOperator(device=device, opt_yml_path=opt_yml_path, current_dir=current_dir)
+        H = NonlinearBlurOperator(device=device, opt_yml_path=opt_yml_path, current_dir=current_dir, w = w)
+    elif deg == "deblur_motion":
+        # kernel_size = int((61 * w) / 256)
+        kernel_size = 121
+        std = 0.3**2
+        H = MotionBlurOperator(kernel_size, std, device)
+        # kernel = Kernel(size=(kernel_size, kernel_size), intensity=std)
+        # kernel = torch.tensor(kernel.kernelMatrix, dtype=torch.float32).to(device)
+        # H.update_weights(kernel)
     elif deg == "phase_retrieval":
         oversample=2.0
-        H = PhaseRetrievalOperator(oversample=oversample, device=device)
+        H = PhaseRetrievalOperator(oversample=oversample, device=device, resolution=w)
     else:
         raise ValueError(f"Degredation model {deg} does not exist.")
 
@@ -933,11 +957,11 @@ class NonLinearOperator(ABC):
 
 #@register_operator(name='nonlinear_blur')
 class NonlinearBlurOperator(NonLinearOperator, H_functions):
-    def __init__(self, opt_yml_path, current_dir, device):
+    def __init__(self, opt_yml_path, current_dir, device, w):
         self.device = device
-        self.blur_model = self.prepare_nonlinear_blur_model(opt_yml_path, current_dir)     
+        self.blur_model = self.prepare_nonlinear_blur_model(opt_yml_path, current_dir, w)     
          
-    def prepare_nonlinear_blur_model(self, opt_yml_path, current_dir):
+    def prepare_nonlinear_blur_model(self, opt_yml_path, current_dir, w):
         '''
         Nonlinear deblur requires external codes (bkse).
         '''
@@ -956,25 +980,41 @@ class NonlinearBlurOperator(NonLinearOperator, H_functions):
         blur_model = KernelWizard(opt)
         blur_model.eval()
         
-        # Disable gradient computation for all parameters
+        # # Disable gradient computation for all parameters
+
+                
+        # # Load the model state_dict directly
+        # state_dict = torch.load(model_path, map_location=self.device)
+        # state_dict = {'state_dict': state_dict}
+
+        # blur_model.load_state_dict(state_dict, strict=False)
+        # blur_model = blur_model.to(self.device)
+
+        blur_model.load_state_dict(torch.load(model_path))
+        blur_model = blur_model.to(self.device)
+        if w == 256:
+            self.random_kernel = torch.randn(1, 512, 2, 2).to(self.device) * 1.2
+        elif w == 512:
+            # self.random_kernel = torch.randn(1, 512, 4, 4).to(self.device) * 1.5
+            self.random_kernel = torch.randn(1, 512, 2, 2).to(self.device) * 1.2
+
         with torch.no_grad():
             for param in blur_model.parameters():
                 param.requires_grad_(False)
                 
-        # Load the model state_dict directly
-        state_dict = torch.load(model_path, map_location=self.device)
-        state_dict = {'state_dict': state_dict}
-
-        blur_model.load_state_dict(state_dict, strict=False)
-        blur_model = blur_model.to(self.device)
-        
         return blur_model
     
     def forward(self, data, **kwargs):
-        random_kernel = torch.randn(data.shape[0], 512, 2, 2).to(self.device) * 1.2
+        random_kernel = self.random_kernel.repeat(data.shape[0], 1, 1, 1)
         data = (data + 1.0) / 2.0  #[-1, 1] -> [0, 1]
-        print(random_kernel.shape)
-        blurred = self.blur_model.adaptKernel(data, kernel=random_kernel)
+        # print(random_kernel.shape)
+        if data.shape[-1] == 512:
+            data256 = torch.nn.functional.interpolate(data, size=(256, 256))
+            blurred = self.blur_model.adaptKernel(data256, kernel=random_kernel)
+            blurred = torch.nn.functional.interpolate(blurred, size=(512, 512))
+        else:
+            blurred = self.blur_model.adaptKernel(data, kernel=random_kernel)
+        # pdb.set_trace()
         blurred = (blurred * 2.0 - 1.0).clamp(-1, 1) #[0, 1] -> [-1, 1]
         return blurred
     
@@ -984,18 +1024,57 @@ class NonlinearBlurOperator(NonLinearOperator, H_functions):
     def H_pinv(self, x):
         return self.H(x)
     
+
+#@register_operator(name='motion_blur')
+class MotionBlurOperator(torch.nn.Module):
+    def __init__(self, kernel_size, std, device):
+        super().__init__()
+        self.device = device
+        self.kernel_size = kernel_size
+        self.std = std
+        self.seq = torch.nn.Sequential(
+            torch.nn.ReflectionPad2d(self.kernel_size//2),
+            torch.nn.Conv2d(3, 3, self.kernel_size, stride=1, padding=0, bias=False, groups=3)
+        ).to(self.device)
+
+        self.init_weights(kernel_size, std)
+        
+    def init_weights(self, kernel_size, std):
+        kernel = Kernel(size=(kernel_size, kernel_size), intensity=std).kernelMatrix
+        self.kernel = torch.tensor(kernel, dtype=torch.float32).to(self.device)
+        for name, param in self.named_parameters():
+            param.data.copy_(self.kernel)
+            param.requires_grad = False
+
+    def update_weights(self, k):
+        if not torch.is_tensor(k):
+            k = torch.from_numpy(k).to(self.device)
+        for name, f in self.named_parameters():
+            f.data.copy_(k)
+
+    def forward(self, data):
+        return self.seq(data)
+    
+    def H(self, data):
+        return self.forward(data)
+    
+    def H_pinv(self, x):
+        return self.H(x)
+
+    
     
 from utils.fft_utils import fft2_m, ifft2_m   
 
 #@register_operator(name='phase_retrieval')
 class PhaseRetrievalOperator(NonLinearOperator):
-    def __init__(self, oversample, device):
-        self.pad = int((oversample / 8.0) * 512)
+    def __init__(self, oversample, device, resolution=256):
+        self.pad = int((oversample / 8.0) * resolution)
         self.device = device
         
     def forward(self, data, **kwargs):
+        data = 0.5 * data + 0.5
         padded = F.pad(data, (self.pad, self.pad, self.pad, self.pad))
-        # print(padded.shape)
+        # print(data)
         amplitude = fft2_m(padded).abs()
         return amplitude
     
@@ -1003,6 +1082,8 @@ class PhaseRetrievalOperator(NonLinearOperator):
         return self.forward(data, **kwargs)
     
     def H_pinv(self, x):
+        if len(x.shape) == 3:
+            x = x.unsqueeze(0)
         x = ifft2_m(x).abs()
         x = self.undo_padding(x, self.pad, self.pad, self.pad, self.pad)
         return x

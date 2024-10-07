@@ -1,0 +1,16 @@
+- exp.load_img_id=True
+- algo.deg=inp_small_box
+- algo.name=rsd_stable_nonaug
+- exp.num_steps=200
+- algo.rho_reg=0.08
+- algo.w_t=0.009
+- algo.lr_x=0.3
+- algo.lr_z=0.3
+- algo.sigma_x0=0.001
+- algo.gamma=0
+- algo.n_particles=2
+- algo.dino_flag=False
+- exp.seed=100
+- +exp.img_path=/home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/input
+- +exp.img_id=image_sequoias.jpg
+- +exp.gpu=0

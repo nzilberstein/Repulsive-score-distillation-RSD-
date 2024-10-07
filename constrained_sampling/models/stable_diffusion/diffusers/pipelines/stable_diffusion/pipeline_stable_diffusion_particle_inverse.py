@@ -184,6 +184,7 @@ class StableDiffusionParticleInversePipeline(DiffusionPipeline, TextualInversion
         )
         self.vae_scale_factor = 2 ** (len(self.vae.config.block_out_channels) - 1)
         self.register_to_config(requires_safety_checker=requires_safety_checker)
+        self.vae = vae
 
     def enable_vae_slicing(self):
         r"""

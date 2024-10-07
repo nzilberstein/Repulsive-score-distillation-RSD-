@@ -1,0 +1,118 @@
+[2024-09-26 08:06:24,849][main][INFO] - Experiment name is RSD
+[2024-09-26 08:06:26,162][main][INFO] - Model loaded
+[2024-09-26 08:06:27,557][main][INFO] - Degradation model loaded. The experiment corresponds to phase_retrieval
+[2024-09-26 08:06:27,558][main][INFO] - Dataset size is 1000
+[2024-09-26 08:06:27,959][main][INFO] - Input image:00013.png
+[2024-09-26 08:06:28,011][main][INFO] - Images loaded and measurements generated
+[2024-09-26 08:06:28,147][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 08:06:28,147][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15
+[2024-09-26 08:38:28,188][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma30/phase_retrieval
+[2024-09-26 08:38:28,189][main][INFO] - Input image:00014.png
+[2024-09-26 08:38:28,192][main][INFO] - Images loaded and measurements generated
+[2024-09-26 08:38:28,308][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 08:38:28,309][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15
+[2024-09-26 09:10:27,358][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma30/phase_retrieval
+[2024-09-26 09:10:27,358][main][INFO] - Input image:00015.png
+[2024-09-26 09:10:27,361][main][INFO] - Images loaded and measurements generated
+[2024-09-26 09:10:27,469][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 09:10:27,469][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15
+[2024-09-26 09:42:32,833][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma30/phase_retrieval
+[2024-09-26 09:42:32,833][main][INFO] - Input image:00016.png
+[2024-09-26 09:42:32,836][main][INFO] - Images loaded and measurements generated
+[2024-09-26 09:42:32,949][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 09:42:32,949][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15
+[2024-09-26 10:14:35,085][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma30/phase_retrieval
+[2024-09-26 10:14:35,085][main][INFO] - Input image:00017.png
+[2024-09-26 10:14:35,088][main][INFO] - Images loaded and measurements generated
+[2024-09-26 10:14:35,192][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 10:14:35,192][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15
+[2024-09-26 10:46:42,952][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma30/phase_retrieval
+[2024-09-26 10:46:42,953][main][INFO] - Input image:00018.png
+[2024-09-26 10:46:42,956][main][INFO] - Images loaded and measurements generated
+[2024-09-26 10:46:43,069][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 10:46:43,070][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15
+[2024-09-26 11:19:00,173][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma30/phase_retrieval
+[2024-09-26 11:19:00,174][main][INFO] - Input image:00019.png
+[2024-09-26 11:19:00,177][main][INFO] - Images loaded and measurements generated
+[2024-09-26 11:19:00,296][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 11:19:00,296][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15
+[2024-09-26 11:51:23,167][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma30/phase_retrieval
+[2024-09-26 11:51:23,168][main][INFO] - Input image:00020.png
+[2024-09-26 11:51:23,171][main][INFO] - Images loaded and measurements generated
+[2024-09-26 11:51:23,285][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 11:51:23,286][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15
+[2024-09-26 12:23:54,495][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma30/phase_retrieval
+[2024-09-26 12:23:54,496][main][INFO] - Input image:00021.png
+[2024-09-26 12:23:54,499][main][INFO] - Images loaded and measurements generated
+[2024-09-26 12:23:54,607][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 12:23:54,607][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15
+[2024-09-26 12:56:26,905][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma30/phase_retrieval
+[2024-09-26 12:56:26,905][main][INFO] - Input image:00022.png
+[2024-09-26 12:56:26,909][main][INFO] - Images loaded and measurements generated
+[2024-09-26 12:56:27,038][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 12:56:27,038][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15
+[2024-09-26 13:29:02,550][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma30/phase_retrieval
+[2024-09-26 13:29:02,551][main][INFO] - Input image:00023.png
+[2024-09-26 13:29:02,554][main][INFO] - Images loaded and measurements generated
+[2024-09-26 13:29:02,674][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 13:29:02,674][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15
+[2024-09-26 14:02:05,600][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma30/phase_retrieval
+[2024-09-26 14:02:05,600][main][INFO] - Input image:00024.png
+[2024-09-26 14:02:05,603][main][INFO] - Images loaded and measurements generated
+[2024-09-26 14:02:05,727][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 14:02:05,727][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15
+[2024-09-26 14:35:06,130][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma30/phase_retrieval
+[2024-09-26 14:35:06,131][main][INFO] - Input image:00025.png
+[2024-09-26 14:35:06,133][main][INFO] - Images loaded and measurements generated
+[2024-09-26 14:35:06,262][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 14:35:06,262][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15
+[2024-09-26 15:07:48,430][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma30/phase_retrieval
+[2024-09-26 15:07:48,430][main][INFO] - Input image:00026.png
+[2024-09-26 15:07:48,433][main][INFO] - Images loaded and measurements generated
+[2024-09-26 15:07:48,550][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 15:07:48,550][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15
+[2024-09-26 15:40:36,824][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma30/phase_retrieval
+[2024-09-26 15:40:36,824][main][INFO] - Input image:00027.png
+[2024-09-26 15:40:36,832][main][INFO] - Images loaded and measurements generated
+[2024-09-26 15:40:36,963][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 15:40:36,964][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15
+[2024-09-26 16:13:34,365][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma30/phase_retrieval
+[2024-09-26 16:13:34,365][main][INFO] - Input image:00028.png
+[2024-09-26 16:13:34,368][main][INFO] - Images loaded and measurements generated
+[2024-09-26 16:13:34,479][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 16:13:34,479][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15
+[2024-09-26 16:46:45,933][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma30/phase_retrieval
+[2024-09-26 16:46:45,933][main][INFO] - Input image:00029.png
+[2024-09-26 16:46:45,936][main][INFO] - Images loaded and measurements generated
+[2024-09-26 16:46:46,039][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 16:46:46,039][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15
+[2024-09-26 17:19:45,775][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma30/phase_retrieval
+[2024-09-26 17:19:45,775][main][INFO] - Input image:00030.png
+[2024-09-26 17:19:45,779][main][INFO] - Images loaded and measurements generated
+[2024-09-26 17:19:45,897][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 17:19:45,898][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15
+[2024-09-26 17:52:34,930][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma30/phase_retrieval
+[2024-09-26 17:52:34,931][main][INFO] - Input image:00031.png
+[2024-09-26 17:52:34,934][main][INFO] - Images loaded and measurements generated
+[2024-09-26 17:52:35,061][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 17:52:35,061][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15
+[2024-09-26 18:25:38,128][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma30/phase_retrieval
+[2024-09-26 18:25:38,129][main][INFO] - Input image:00032.png
+[2024-09-26 18:25:38,132][main][INFO] - Images loaded and measurements generated
+[2024-09-26 18:25:38,241][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 18:25:38,241][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15
+[2024-09-26 18:58:52,106][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma30/phase_retrieval
+[2024-09-26 18:58:52,106][main][INFO] - Input image:00033.png
+[2024-09-26 18:58:52,110][main][INFO] - Images loaded and measurements generated
+[2024-09-26 18:58:52,210][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 18:58:52,210][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15
+[2024-09-26 19:32:04,649][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma30/phase_retrieval
+[2024-09-26 19:32:04,650][main][INFO] - Input image:00034.png
+[2024-09-26 19:32:04,653][main][INFO] - Images loaded and measurements generated
+[2024-09-26 19:32:04,757][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 19:32:04,758][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15
+[2024-09-26 20:04:33,469][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma30/phase_retrieval
+[2024-09-26 20:04:33,469][main][INFO] - Input image:00035.png
+[2024-09-26 20:04:33,473][main][INFO] - Images loaded and measurements generated
+[2024-09-26 20:04:33,577][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-09-26 20:04:33,577][main][INFO] - Running setting with coeff: 30,                             lr: (0.4, 1),                             rho_reg: 0.07,                             w_t: 0.15

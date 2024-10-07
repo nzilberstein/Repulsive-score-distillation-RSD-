@@ -27,17 +27,15 @@ class RSD_NONAUG(DDIM):
         # self.diffusion = model.diffusion
         self.H = build_degredation_model(cfg)
         self.cfg = cfg
-        # self.awd = cfg.algo.awd
-        # self.cond_awd = cfg.algo.cond_awd
         self.w_t = cfg.algo.w_t
         self.obs_weight = cfg.algo.obs_weight
-        self.lr_x = cfg.algo.lr_x
         self.lr_z = cfg.algo.lr_z
         self.denoise_term_weight = cfg.algo.denoise_term_weight
         self.sigma_x0 = cfg.algo.sigma_x0
-        self.rho_reg = cfg.algo.rho_reg
         self.dino_flag = cfg.algo.dino_flag
         self.gamma = cfg.algo.gamma
+        self.load_img = cfg.exp.load_img_id
+        self.sigma_break = cfg.algo.sigma_break
 
         self.height = 512
         self.width = 512
@@ -60,7 +58,11 @@ class RSD_NONAUG(DDIM):
         optimizer_z = torch.optim.Adam([latents], lr=self.lr_z, betas=(0.9, 0.99), weight_decay=0.0)   #original: 0.999
 
         counter = 0
-        evol_path = '/home/nzilberstein/repository/constrained_sampling/_exp/evol_rsd'
+        if self.load_img:
+            evol_path = f'/home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/_exp/evol/rsd_stable_nonaug_{self.cfg.exp.img_id}_{self.cfg.algo.gamma}'
+        else:
+            evol_path = f'/home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/_exp/evol/rsd_stable_nonaug'
+
         if not os.path.exists(f'{evol_path}'):
             os.makedirs(f'{evol_path}')
         else:
@@ -68,6 +70,17 @@ class RSD_NONAUG(DDIM):
             os.makedirs(f'{evol_path}')
         
         x_list = []
+
+        sigmas = torch.sqrt((1 - self.model.scheduler.alphas_cumprod) / self.model.scheduler.alphas_cumprod)
+        # Flip the order of sigmas
+        # sigmas = sigmas.flip(0)
+        sigmas = sigmas[self.model.scheduler.timesteps.cpu().numpy()]
+        
+        # print(sigmas.flip(0))
+        # print(sigmas[self.model.scheduler.timesteps.cpu().numpy()])
+
+        idx_sigma_break = int(((self.model.scheduler.timesteps.shape[0])/ 1000 ) * self.sigma_break)
+
         for i, t in tqdm(enumerate(ts[:-1])):
 
             # tensor_list = ts.tolist()
@@ -89,13 +102,17 @@ class RSD_NONAUG(DDIM):
             noise_pred = et - noise_t
 
             # Repulsion term
-            if self.dino_flag is True:
+            # print(int(((len(ts) + 1)/ 1000 ) * 600))
+            if self.dino_flag is True and sigmas[i] > sigmas[idx_sigma_break]:
+                if counter % 100 == 0:
+                    print(counter)
                 latent_pred_t.requires_grad_(True)
                 dino.requires_grad_(True)
                 self.model.vae.decoder.requires_grad_(True)
                 dino.train()
                 self.model.vae.train()
 
+                # x_pred_z = self.model.decode_latents(latents, stay_on_device=True)
                 x_pred_z = self.model.decode_latents(latent_pred_t, stay_on_device=True)
                 dino_out = dino(x_pred_z)
 
@@ -113,6 +130,7 @@ class RSD_NONAUG(DDIM):
                 grad_phi = grad_phi.sum(dim=1)
 
                 eval_sum = torch.sum(dino_out * grad_phi.detach())
+                # deps_dx_backprop = torch.autograd.grad(eval_sum, latents)[0]
                 deps_dx_backprop = torch.autograd.grad(eval_sum, latent_pred_t)[0]
                 grad_phi = deps_dx_backprop.view_as(latents)
 
@@ -120,6 +138,8 @@ class RSD_NONAUG(DDIM):
                 nabla_log = torch.div(grad_phi, K_svgd_z_mat_reg_sum.unsqueeze(-1).unsqueeze(-1))
 
                 noise_pred = et - noise_t - self.gamma * (1-alpha_t).sqrt() * nabla_log
+                # noise_pred = et - noise_t - self.gamma * sigmas[i] * nabla_log
+
             else:
                 noise_pred = et - noise_t
 
@@ -128,14 +148,13 @@ class RSD_NONAUG(DDIM):
             # Weighting
             # snr_inv = (1-alpha_t)
             snr_inv = (1-alpha_t).sqrt() / alpha_t.sqrt()
-            rho_reg = self.rho_reg
 
             # Optimize z - non aug 
             x_pred_z = self.model.decode_latents(latents, stay_on_device=True)
             e_obs = y_0 - H.H(x_pred_z)
             loss_obs = (e_obs**2).mean() / 2
 
-            loss_z = loss_obs + (self.w_t / (rho_reg) ) * snr_inv * loss_diffusion
+            loss_z = loss_obs + (self.w_t) * snr_inv * loss_diffusion
 
             optimizer_z.zero_grad()
             loss_z.backward()
@@ -144,7 +163,7 @@ class RSD_NONAUG(DDIM):
 
             # #save for visualization
             if self.cfg.exp.save_evolution:
-                if counter % 100 == 0:
+                if counter % 50 == 0:
                     x = self.model.decode_latents(latents, stay_on_device=True).detach()
                     image_evol = make_grid((postprocess(x).clone().detach().cpu()))
                     save_image(image_evol, f'{evol_path}/evol_{counter}_z.png')     
@@ -176,7 +195,7 @@ class RSD_NONAUG(DDIM):
                     print(f'Mean LPIPS: {LPIPS.mean()}')
                     print(f'LPIPS: {LPIPS[:,0,0,0]}')
                 
-                if counter > 900 and counter % 10 == 0:
+                if counter > len(ts) - 100 - 1 and counter % 10 == 0:
                     x = self.model.decode_latents(latents, stay_on_device=True).detach()
                     image_evol = make_grid((postprocess(x).clone().detach().cpu()))
                     save_image(image_evol, f'{evol_path}/evol_{counter}_z.png') 

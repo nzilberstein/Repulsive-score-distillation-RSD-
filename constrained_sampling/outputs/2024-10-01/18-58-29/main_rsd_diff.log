@@ -1,0 +1,12 @@
+[2024-10-01 18:58:30,094][main][INFO] - Experiment name is RSD
+[2024-10-01 18:58:32,293][main][INFO] - Model loaded
+[2024-10-01 18:59:15,896][main][INFO] - Degradation model loaded. The experiment corresponds to inp_20ff
+[2024-10-01 18:59:15,903][main][INFO] - Images loaded and measurements generated
+[2024-10-01 18:59:15,951][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
+[2024-10-01 18:59:15,951][main][INFO] - Running setting with coeff: 20,                         lr: (0.4, 0.8),                         rho_reg: 0.05,                         w_t: 0.15,                         sigma_break: 999
+[2024-10-01 19:04:29,419][main][INFO] - Mean PSNR: 28.13949966430664
+[2024-10-01 19:04:29,420][main][INFO] - PSNR: tensor([28.9920, 27.7566, 28.0011, 27.8083])
+[2024-10-01 19:04:29,424][main][INFO] - Mean LPIPS: 0.06905114650726318
+[2024-10-01 19:04:29,425][main][INFO] - LPIPS: tensor([0.0696, 0.0686, 0.0679, 0.0701], device='cuda:0',
+       grad_fn=<SelectBackward0>)
+[2024-10-01 19:04:29,973][main][INFO] - Done. You can fine the generated images in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/output/rsd_stable_repulsion_augm_gamma20/00005

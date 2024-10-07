@@ -26,8 +26,9 @@ from utils.save import save_result, save_imagenet_result_particles
 def main(cfg: DictConfig):
     ####
     os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"   # see issue #152
-    os.environ["CUDA_VISIBLE_DEVICES"]="0,1,2,3,4,5"
+    os.environ["CUDA_VISIBLE_DEVICES"]="0,1"
 
+    
     torch.cuda.set_device(cfg.exp.gpu)
     device ='cuda:' + str(cfg.exp.gpu)
     
@@ -40,7 +41,10 @@ def main(cfg: DictConfig):
     cfg = init_omega(cfg, cwd)
 
     if cfg.algo.gamma > 0:
-        cfg.algo.name_folder = 'rsd_stable_repulsion_gamma' + str(cfg.algo.gamma)
+        if cfg.algo.name == 'rsd_stable':
+            cfg.algo.name_folder = 'rsd_stable_repulsion_augm_gamma' + str(cfg.algo.gamma)            
+        else:
+            cfg.algo.name_folder = 'rsd_stable_repulsion_gamma' + str(cfg.algo.gamma)
     else:
         cfg.algo.name_folder = cfg.algo.name
 
@@ -64,8 +68,8 @@ def main(cfg: DictConfig):
     logger.info(f'Experiment name is {"RSD"}')
 
     # Load model
-    # pipe = StableDiffusionParticleInversePipeline.from_pretrained("stabilityai/stable-diffusion-2-1-base")
-    pipe = StableDiffusionParticleInversePipeline.from_pretrained("runwayml/stable-diffusion-v1-5")
+    pipe = StableDiffusionParticleInversePipeline.from_pretrained("stabilityai/stable-diffusion-2-1-base")
+    # pipe = StableDiffusionParticleInversePipeline.from_pretrained("runwayml/stable-diffusion-v1-5")
     pipe = pipe.to("cuda")
     pipe.scheduler = DDIMScheduler.from_config(pipe.scheduler.config)
     pipe.scheduler.set_timesteps(cfg.exp.num_steps, device=cfg.exp.gpu)
@@ -87,7 +91,7 @@ def main(cfg: DictConfig):
 
     ### UP TO THIS POINT, EVERYTHING IS THE SAME EITHER FOR STABLE DIFFUSION OR OTHER DIFFUSION MODELS.
 
-    if cfg.algo.name == 'rsd_stable':
+    if cfg.algo.name == 'rsd_stable' or cfg.algo.name == 'rsd_stable_nonaug':
         # If we have an image as input, we have a single run. We do it separately.
         if cfg.exp.load_img_id is True:
             img_path = os.path.join(cfg.exp.img_path, cfg.exp.img_id)
@@ -118,7 +122,10 @@ def main(cfg: DictConfig):
 
             # If save deg true, then we save the degradated image
             if cfg.exp.save_deg is True:
-                xo = postprocess(get_degreadation_image(y_0, H, cfg))
+                if cfg.algo.deg == 'deblur_motion':
+                    xo = postprocess(y_0)
+                else:
+                    xo = postprocess(get_degreadation_image(y_0, H, cfg))
                 transform_pil_to_image = transforms.ToPILImage()
                 img = transform_pil_to_image(xo[0].cpu())
                 deg_path = os.path.join(cfg.exp.root, cfg.exp.deg_path, 'x_deg.png')
@@ -130,13 +137,22 @@ def main(cfg: DictConfig):
             logger.info(f'Running setting with coeff: {cfg.algo.gamma}, \
                         lr: {cfg.algo.lr_x, cfg.algo.lr_z}, \
                         rho_reg: {cfg.algo.rho_reg}, \
-                        w_t: {cfg.algo.w_t}')
+                        w_t: {cfg.algo.w_t}, \
+                        sigma_break: {cfg.algo.sigma_break}')
+            
+            # print start time
+            # import time
+            # start = time.time()
             
             if cfg.algo.dino_flag is True:
                 xt_s, _ = algo.sample(x, y, ts, generator, y_0, dino = dino)
             else:
                 xt_s, _ = algo.sample(x, y, ts, generator, y_0)  
             
+            # print end time
+            # end = time.time()
+            # print(f"Time taken: {end - start}")
+
             # This is for saving at 256 resolution
             # if isinstance(xt_s, list):
             #     xo = postprocess(xt_s[0]).cpu()
@@ -159,18 +175,18 @@ def main(cfg: DictConfig):
             else:
                 xo = postprocess(xt_s).cpu()
                 x_gt = postprocess(x)
-            # save_result(dataset_name, xo, y, info, output_path, "")
 
             # PSNR
+            
             mse = torch.mean((xo - x_gt.cpu()) ** 2, dim=(1, 2, 3))
             psnr = 10 * torch.log10(1 / (mse + 1e-10))
-            print(f'Mean PSNR: {psnr.mean()}')
-            print(f'PSNR: {psnr}')
+            logger.info(f'Mean PSNR: {psnr.mean()}')
+            logger.info(f'PSNR: {psnr}')
             
             # LPIPS
             LPIPS = lpips_(xo.cuda(), x_gt.cuda())
-            print(f'Mean LPIPS: {LPIPS.mean()}')
-            print(f'LPIPS: {LPIPS[:,0,0,0]}')
+            logger.info(f'Mean LPIPS: {LPIPS.mean()}')
+            logger.info(f'LPIPS: {LPIPS[:,0,0,0]}')
 
             output_path_img = f'{output_path}/{cfg.exp.img_id.split('.')[0]}'
             if not os.path.exists(output_path_img):
@@ -194,14 +210,17 @@ def main(cfg: DictConfig):
                 os.makedirs(output_path)
 
             for it, (x, y, info) in enumerate(loader):
-                if info['index'][0].split('.')[0] < '00050':
-                    continue
+                # if info['index'][0].split('.')[0] < '00035':
+                #     continue
                 logger.info(f"Input image:{ info['index'][0]}")
                 
                 # If 256 size, upsample to 512
                 if x.shape[-1] == 256:
                     upsample = nn.Upsample(scale_factor=2, mode='nearest') 
                     x = upsample(x).squeeze()
+                elif x.shape[-1] != 512 or x.shape[-2] != 512:
+                    x = transforms.Resize((512, 512))(x)
+                    # print(x.shape)
 
                 x = x.cuda()
                 y = y.cuda()
@@ -218,7 +237,10 @@ def main(cfg: DictConfig):
 
                 # If save deg true, then we save the degradated image
                 if cfg.exp.save_deg is True:
-                    xo = postprocess(get_degreadation_image(y_0, H, cfg))
+                    if cfg.algo.deg == 'deblur_motion':
+                        xo = postprocess(y_0)
+                    else:
+                        xo = postprocess(get_degreadation_image(y_0, H, cfg))
                     transform_pil_to_image = transforms.ToPILImage()
                     img = transform_pil_to_image(xo[0].cpu())
                     deg_path = os.path.join(cfg.exp.root, cfg.exp.deg_path, 'x_deg.png')
@@ -230,7 +252,8 @@ def main(cfg: DictConfig):
                 logger.info(f'Running setting with coeff: {cfg.algo.gamma}, \
                             lr: {cfg.algo.lr_x, cfg.algo.lr_z}, \
                             rho_reg: {cfg.algo.rho_reg}, \
-                            w_t: {cfg.algo.w_t}')
+                            w_t: {cfg.algo.w_t}, \
+                            sigma_break: {cfg.algo.sigma_break}')
                 
                 
                 if cfg.algo.dino_flag is True:

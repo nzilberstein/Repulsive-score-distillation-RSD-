@@ -1,0 +1,10 @@
+- exp.load_img_id=False
+- algo.deg=inp_random
+- exp.num_steps=999
+- algo.rho_reg=0.09
+- algo.w_t=0.001
+- algo.lr_x=0.4
+- algo.lr_z=0.8
+- algo.sigma_x0=0.001
+- algo.gamma=0
+- +exp.gpu=1

@@ -11,6 +11,7 @@ from .dps import DPS
 from .sds import SDS
 from .sds_var import SDS_VAR
 from .rsd import RSD
+from .rsd_nonaug import RSD_NONAUG
 
 def build_algo(cg_model, cfg):
     if cfg.algo.name == 'identity':
@@ -35,5 +36,7 @@ def build_algo(cg_model, cfg):
         return SDS_VAR(cg_model, cfg)
     elif cfg.algo.name == 'rsd_stable':
         return RSD(cg_model, cfg)
+    elif cfg.algo.name == 'rsd_stable_nonaug':
+        return RSD_NONAUG(cg_model, cfg)
     else:
         raise ValueError(f'No algorithm named {cfg.algo.name}')
