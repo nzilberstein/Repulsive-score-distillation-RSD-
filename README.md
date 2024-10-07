@@ -1,13 +1,13 @@
-# REPULSIVE SCORE DISTILLATION (RSD)
+# REPULSIVE LATENT SCORE DISTILLATION (RSD)
 
 This is the README file for the implementation of Repulsive Score Distillation, a method introduced in https://arxiv.org/abs/2406.16683.
 It provides an overview of the project, instructions for installation and usage, and other relevant information.
 
 Given that our framework was applied to unconstrained case (text-to-image, text-to-3D) and constrained (inverse problems), there are two different folders, one for each case.
 
-Our proposed method (for constrained sampling) is summarized in the following figure
+Our proposed method for inverse problems is summarized in the following figure
 
-<img src="https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/blob/main/figures/scheme2-1.png" width="800" height="425">
+<img src="https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/blob/main/figures/scheme_main.png" width="800" height="425">
 
 In a nutshell, we incorporate a diversity-seeking regularizer in score distillation sampling. 
 We apply this formulation to unconstrained sampling, in the sense that we generate a scene or an image from a prompt, and constrained sampling, where we aim to compute an estimation given a noisy measurement. 
