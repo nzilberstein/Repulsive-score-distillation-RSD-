@@ -63,17 +63,7 @@ cd <root>
 git clone https://github.com/nzilberstein/Repulsive-score-distillation-RSD-.git
 ```
 
-## Unconstrained sampling
-
-For unconstrained sampling, we include:
-
-1. ProlificDreamer2D for text-to-image generation (see below in Acknowledgment). For the requirements, you can check in their repo to install the conda environment
-2. DreamFusion
-3. Noise-free score distillation (for this case we couldn't replicate the results from the original paper)
-4. Threestudio implementation for text-to-3D (see below in Acknowledgment). The only difference wrt the implementation from threestudio is in the file Repulsive-score-distillation-RSD-/unconstrained_sampling/threestudio/threestudio/models/guidance/deep_floyd_guidance.py, where we have the repulsion term that we added. The flag to activate and desactivate the repulsion is an attribute of the class (it is hard-coded, we will change soon).
-
-
-## Constrained sampling
+## Solving Inverse problems
 
 
 #### Description
@@ -160,7 +150,17 @@ w_t corresponds to lambda
 
 For other methods, we use the same logic from RED-diff repository.
 
-## Some more examples of text-to-3D
+
+## Text-to-image and text-to-3D
+
+For unconstrained sampling, we include:
+
+1. ProlificDreamer2D for text-to-image generation (see below in Acknowledgment). For the requirements, you can check in their repo to install the conda environment
+2. DreamFusion
+3. Noise-free score distillation (for this case we couldn't replicate the results from the original paper)
+4. Threestudio implementation for text-to-3D (see below in Acknowledgment). The only difference wrt the implementation from threestudio is in the file Repulsive-score-distillation-RSD-/unconstrained_sampling/threestudio/threestudio/models/guidance/deep_floyd_guidance.py, where we have the repulsion term that we added. The flag to activate and desactivate the repulsion is an attribute of the class (it is hard-coded, we will change soon).
+
+### Some more examples of text-to-3D
 
 
 
