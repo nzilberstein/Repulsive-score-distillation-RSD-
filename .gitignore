@@ -1,6 +1,7 @@
 constrained_sampling/_exp/
-constrained_sampling/eval/
-constrained_sampling/datasets/
+constrained_sampling/eval/exp_hybrid
+constrained_sampling/datasets/FFHQ
+constrained_sampling/datasets/images_appendix
 constrained_sampling/motionblur/
 constrained_sampling/outputs/
 unconstrained_sampling/
