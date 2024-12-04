@@ -14,11 +14,11 @@ Furtermore, our formulation relies on half-quadratic splitting; we described in 
 
 An example for image inpaiting half face is shown below
 
-Original image and noisy measurement
+### Original image and noisy measurement
 
-<img src="https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/blob/main/figures/bip_large_00055_input_deg-1.png" width="500" height="225">
+<img src="https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/blob/main/figures/bip_large_00055_input_deg-1.png" width="500" height="225" class="center">
 
-Reconstuction (top is RSD without repulsion and bottom is RSD with repulsion)
+### Reconstuction
 
 <img src="https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/blob/main/figures/bip_large_00055_names.png" width="800" height="425">
 
