@@ -131,8 +131,8 @@ class RSD(DDIM):
                 dino.train()
                 self.model.vae.train()
 
-                x_pred_z = self.model.decode_latents(latents, stay_on_device=True)
-                # x_pred_z = self.model.decode_latents(latent_pred_t, stay_on_device=True)
+                # x_pred_z = self.model.decode_latents(latents, stay_on_device=True)
+                x_pred_z = self.model.decode_latents(latent_pred_t, stay_on_device=True)
 
                 dino_out = dino(x_pred_z)
 
@@ -150,13 +150,14 @@ class RSD(DDIM):
                 grad_phi = grad_phi.sum(dim=1)
 
                 eval_sum = torch.sum(dino_out * grad_phi.detach())
-                deps_dx_backprop = torch.autograd.grad(eval_sum, latents)[0]
-                # deps_dx_backprop = torch.autograd.grad(eval_sum, latent_pred_t)[0]
+                # deps_dx_backprop = torch.autograd.grad(eval_sum, latents)[0]
+                deps_dx_backprop = torch.autograd.grad(eval_sum, latent_pred_t)[0]
                 grad_phi = deps_dx_backprop.view_as(latents)
 
                 K_svgd_z_mat_reg_sum = weights.sum(dim = 1)
                 nabla_log = torch.div(grad_phi, K_svgd_z_mat_reg_sum.unsqueeze(-1).unsqueeze(-1))
 
+                # nabla_log = nabla_log[0:int(batch_size/2),:,:,:] # For hybrid mode
                 noise_pred = et - noise_t - self.gamma * (1-alpha_t).sqrt() * nabla_log
                 # noise_pred = et - noise_t - self.gamma * sigmas[i] * nabla_log
 
