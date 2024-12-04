@@ -16,7 +16,9 @@ An example for image inpaiting half face is shown below
 
 ### Original image and noisy measurement
 
-<img src="https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/blob/main/figures/bip_large_00055_input_deg-1.png" width="500" height="225" class="center">
+<div align="center">
+<img src="https://github.com/nzilberstein/Repulsive-score-distillation-RSD-/blob/main/figures/bip_large_00055_input_deg-1.png" width="450" height="225">
+</div>
 
 ### Reconstuction
 
