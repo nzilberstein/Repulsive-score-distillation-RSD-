@@ -61,10 +61,11 @@ pip install -r requirements.txt
 We recommend to create a new environment to avoid issues with versions.
 
 
-## Datasets. We ran experiments using FFHQ.
+## Datasets. 
 
- 
+We ran experiments using FFHQ, and also ImageNet 512.
 For simplicity, you can download the .zip file in this link https://drive.google.com/drive/u/1/folders/1fnjqWu8gaPZfS0niVmtBoNuncM_O302-.
+
 
 
 ## Checkpoints.
