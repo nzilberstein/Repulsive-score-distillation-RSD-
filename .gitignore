@@ -1,5 +1,5 @@
 constrained_sampling/_exp/
-constrained_sampling/eval/exp_hybrid
+constrained_sampling/eval/exp_hybryd
 constrained_sampling/datasets/FFHQ
 constrained_sampling/datasets/images_appendix
 constrained_sampling/motionblur/
