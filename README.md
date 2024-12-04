@@ -135,8 +135,9 @@ If you find our work interesting, please consider citing as
 
 ## Contact
 
-For any inquiries, please contact nzilberstein@rice.edu
+For any inquiries, issues with running the code or suggestions to improve reproducibility, please contact nzilberstein@rice.edu or add an issue in the repository.
 
 ## Acknowledgments
 
-Credits go to a few repos that we used as templates: particle guidance (https://github.com/gcorso/particle-guidance/tree/main) and RED-diff (https://github.com/NVlabs/RED-diff/tree/master).
+Credits go to RED-diff (https://github.com/NVlabs/RED-diff/tree/master), which we used as template.
+Also, for the guidance term, we inspired in particle guidance (https://github.com/gcorso/particle-guidance/tree/main).
