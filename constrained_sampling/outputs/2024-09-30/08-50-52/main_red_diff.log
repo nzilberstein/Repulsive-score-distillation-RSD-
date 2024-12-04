@@ -1,3 +1,0 @@
-[2024-09-30 08:50:53,391][main][INFO] - Experiment name is RED-diff
-[2024-09-30 08:50:54,098][model][INFO] - Loading model from /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/ckpts/ffhq/ffhq_10m.pt..
-[2024-09-30 08:51:04,141][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png

@@ -1,2 +1,0 @@
-[2024-05-27 19:36:46,713][main][INFO] - Experiment name is RSD
-[2024-05-27 19:36:46,713][main][INFO] - {'name': 'rsd', 'deg': 'inp', 'w': 0, 'obs_weight': 1, 'denoise_term_weight': 'linear', 'sigma_y': 0.0, 'eta': 0.0, 'sigma_x0': 0.0, 'n_particles': 4, 'dino_flag': True, 'gamma': 0, 'rho_reg': 0.03, 'w_t': 0.0007, 'lr_x': 0.8, 'lr_z': 0.8}

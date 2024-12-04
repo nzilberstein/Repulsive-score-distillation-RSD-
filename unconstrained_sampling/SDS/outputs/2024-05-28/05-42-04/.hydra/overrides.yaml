@@ -1,3 +1,0 @@
-- exp.load_text=False
-- +exp.csv_path=dataset/datacoco/subset.csv
-- +exp.gpu=0

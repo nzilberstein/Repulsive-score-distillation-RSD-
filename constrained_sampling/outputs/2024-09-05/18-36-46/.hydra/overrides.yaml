@@ -1,9 +1,0 @@
-- exp.load_img_id=True
-- algo=reddiff
-- algo.deg=deblur_motion
-- exp.num_steps=999
-- algo.grad_term_weight=0.1
-- algo.sigma_y=0.001
-- +exp.img_path=/home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/input/FFHQ
-- +exp.img_id=00003.png
-- +exp.gpu=0

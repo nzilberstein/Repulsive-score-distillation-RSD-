@@ -128,11 +128,12 @@ To use the repulsion, you have to set
 algo.dino_flag = True
 ```
 
+Another important parameter for repulsion is sigma_break, which controls in how many noise levels there is repulsion: 999 means in all noise levels (if the total number is 200, 999 is automatically rescaled to 199)
 
 An example with inpainting with a particular image can be obtain by running
 
 ```
-sh solve_inverse_stable_single.sh
+sh runs/solve_inverse_stable_single.sh
 ```
 
 The results will be saved in the _exp folder.
@@ -144,7 +145,7 @@ Regarding the hyperparamters, there are some experiments that might need a fine-
 The relationship between the parameters of the bash file and the paper is as follow:
 
 ```
-rho_t corresponds to 1/rho^2
+rho_t corresponds to \tilde{\rho}
 w_t corresponds to lambda
 ```
 

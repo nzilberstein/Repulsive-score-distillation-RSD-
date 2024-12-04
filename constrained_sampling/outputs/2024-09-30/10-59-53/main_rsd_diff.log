@@ -1,6 +1,0 @@
-[2024-09-30 10:59:53,865][main][INFO] - Experiment name is RSD
-[2024-09-30 10:59:55,191][main][INFO] - Model loaded
-[2024-09-30 10:59:56,554][main][INFO] - Degradation model loaded. The experiment corresponds to sr8
-[2024-09-30 10:59:56,567][main][INFO] - Images loaded and measurements generated
-[2024-09-30 10:59:56,601][main][INFO] - Degradated image y saved in /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/deg/x_deg.png
-[2024-09-30 10:59:56,601][main][INFO] - Running setting with coeff: 35,                         lr: (0.4, 0.6),                         rho_reg: 0.075,                         w_t: 0.1,                         sigma_break: 800

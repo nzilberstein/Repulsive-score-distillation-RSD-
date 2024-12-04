@@ -1,6 +1,0 @@
-# Copyright (c) 2023, NVIDIA CORPORATION.  All rights reserved
-
-defaults:
-- exp: default
-- algo: rsd_stable
-- _self_

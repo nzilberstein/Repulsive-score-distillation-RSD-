@@ -1,3 +1,0 @@
-python launch.py --config configs/dreamfusion-if.yaml --train --gpu 0 system.prompt_processor.prompt="a crocodile playing a drum set"
-# python launch.py --config configs/dreamfusion-if.yaml --train --gpu 0 system.prompt_processor.prompt="A plate of fried chicken and waffles with maple syrup on them."
-# python launch.py --config configs/dreamfusion-if.yaml --train --gpu 0 system.prompt_processor.prompt=“a beautiful dress made out of fruit, on a mannequin”

@@ -1,2 +1,0 @@
-[2024-09-17 16:51:04,384][main][INFO] - Experiment name is RED-diff
-[2024-09-17 16:51:07,656][model][INFO] - Loading model from /home/nicolas/Repulsive-score-distillation-RSD-/constrained_sampling/_exp/ckpts/imagenet/256x256_diffusion_uncond.pt..
