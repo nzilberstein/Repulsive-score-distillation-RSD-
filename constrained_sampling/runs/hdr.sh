@@ -10,7 +10,7 @@ rho_reg=0.2 #0.13     #0.09
 sigma_x0=0.001
 
 gamma=0
-n_particles=4
+n_particles=1
 dino_flag=False
 sigma_break=999
 

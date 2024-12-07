@@ -10,6 +10,7 @@ import lpips
 import torch.nn as nn
 from omegaconf import DictConfig
 from torchvision import transforms
+import time
 
 from models.stable_diffusion.diffusers import StableDiffusionParticleInversePipeline, DDIMScheduler
 
@@ -28,9 +29,8 @@ def main(cfg: DictConfig):
     os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"   # see issue #152
     os.environ["CUDA_VISIBLE_DEVICES"]="0,1"
 
-    
+    # Set cuda device
     torch.cuda.set_device(cfg.exp.gpu)
-    device ='cuda:' + str(cfg.exp.gpu)
     
     # Generator for stable diffusion
     seed_everything(cfg.exp.seed)
@@ -40,13 +40,8 @@ def main(cfg: DictConfig):
     cwd = HydraConfig.get().runtime.output_dir
     cfg = init_omega(cfg, cwd)
 
-    if cfg.algo.gamma > 0:
-        if cfg.algo.name == 'rsd_stable':
-            cfg.algo.name_folder = 'rsd_stable_repulsion_augm_gamma' + str(cfg.algo.gamma)            
-        else:
-            cfg.algo.name_folder = 'rsd_stable_repulsion_gamma' + str(cfg.algo.gamma)
-    else:
-        cfg.algo.name_folder = cfg.algo.name
+    # Set folder name
+    cfg.algo.name_folder = cfg.algo.name + str(cfg.algo.gamma)
 
     # Build paths
     deg_path = os.path.join(cfg.exp.root, cfg.exp.deg_path, cfg.algo.name_folder)
@@ -76,7 +71,6 @@ def main(cfg: DictConfig):
     ts = pipe.scheduler.timesteps
     logger.info(f'Model loaded')
 
-    # Load dino and lpips: TODO: do in another part.
     if cfg.algo.dino_flag is True:
         dino = torch.hub.load('facebookresearch/dino:main', 'dino_vits16').to("cuda")
         lpips_ = lpips.LPIPS(net='alex').cuda() # best forward score
@@ -92,7 +86,9 @@ def main(cfg: DictConfig):
     ### UP TO THIS POINT, EVERYTHING IS THE SAME EITHER FOR STABLE DIFFUSION OR OTHER DIFFUSION MODELS.
 
     if cfg.algo.name == 'rsd_stable' or cfg.algo.name == 'rsd_stable_nonaug':
+        #
         # If we have an image as input, we have a single run. We do it separately.
+        #
         if cfg.exp.load_img_id is True:
             img_path = os.path.join(cfg.exp.img_path, cfg.exp.img_id)
             img = Image.open(img_path).convert('RGB')
@@ -112,7 +108,9 @@ def main(cfg: DictConfig):
 
             if cfg.algo.n_particles > 1:
                 x = x.repeat(cfg.algo.n_particles, 1, 1, 1)
-            
+            else:
+                x = x.unsqueeze(0)
+
             # Get noisy measurement
             y = None
             x = preprocess(x)
@@ -140,20 +138,18 @@ def main(cfg: DictConfig):
                         w_t: {cfg.algo.w_t}, \
                         sigma_break: {cfg.algo.sigma_break}')
             
-            # print start time
-            # import time
-            # start = time.time()
+            start = time.time()
             
             if cfg.algo.dino_flag is True:
                 xt_s, _ = algo.sample(x, y, ts, generator, y_0, dino = dino)
             else:
                 xt_s, _ = algo.sample(x, y, ts, generator, y_0)  
             
-            # print end time
-            # end = time.time()
-            # print(f"Time taken: {end - start}")
+            end = time.time()
+            print(f"Time taken: {end - start}")
 
-            # This is for saving at 256 resolution
+            ## !! This is for saving at 256 resolution
+            
             # if isinstance(xt_s, list):
             #     xo = postprocess(xt_s[0]).cpu()
             #     downsample = nn.AvgPool2d(2, 2)
@@ -176,14 +172,13 @@ def main(cfg: DictConfig):
                 xo = postprocess(xt_s).cpu()
                 x_gt = postprocess(x)
 
-            # PSNR
-            
+            # Compute PSNR
             mse = torch.mean((xo - x_gt.cpu()) ** 2, dim=(1, 2, 3))
             psnr = 10 * torch.log10(1 / (mse + 1e-10))
             logger.info(f'Mean PSNR: {psnr.mean()}')
             logger.info(f'PSNR: {psnr}')
             
-            # LPIPS
+            # Compute LPIPS
             LPIPS = lpips_(xo.cuda(), x_gt.cuda())
             logger.info(f'Mean LPIPS: {LPIPS.mean()}')
             logger.info(f'LPIPS: {LPIPS[:,0,0,0]}')
@@ -229,7 +224,10 @@ def main(cfg: DictConfig):
 
                 if cfg.algo.n_particles > 1:
                     x = x.repeat(cfg.algo.n_particles, 1, 1, 1)
+                else:
+                    x = x.unsqueeze(0)
                 
+                print(x.shape)
                 # Get noisy measurement
                 y_0 = H.H(x.to("cuda"))
                 y_0 = y_0 + torch.randn_like(y_0) * cfg.algo.sigma_x0    #?? what is it for???
@@ -270,13 +268,13 @@ def main(cfg: DictConfig):
 
                 save_result(dataset_name, xo, y, info, output_path, "")
 
-                # PSNR
+                # Compute PSNR
                 mse = torch.mean((xo - x_gt.cpu()) ** 2, dim=(1, 2, 3))
                 psnr = 10 * torch.log10(1 / (mse + 1e-10))
                 print(f'Mean PSNR: {psnr.mean()}')
                 print(f'PSNR: {psnr}')
                 
-                # LPIPS
+                # Compute LPIPS
                 LPIPS = lpips_(xo.cuda(), postprocess(x))
                 print(f'Mean LPIPS: {LPIPS.mean()}')
                 print(f'LPIPS: {LPIPS[:,0,0,0]}')
@@ -284,7 +282,7 @@ def main(cfg: DictConfig):
                 torch.cuda.empty_cache()
                 logger.info(f'Done. You can fine the generated images in {output_path}')
     else:
-        raise NotImplementedError('Only RSD is implemented')
+        raise NotImplementedError('Wrong method')
 
 
 if __name__ == "__main__":
